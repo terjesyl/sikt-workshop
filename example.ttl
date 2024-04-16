@@ -8,16 +8,18 @@
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://data.digdir.no/catalog/workshop-katalog> a dcat:Catalog ;
-    dct:identifier "https://example.com/test/relasjon" ;
+    dct:identifier "https://data.digdir.no/catalog/workshop-katalog" ;
     dct:publisher <https://data.brreg.no/enhetsregisteret/api/enheter/991825827> ;
     dct:title "Eksempelkatalog til workshop"@nb ;
-    dcat:dataset <https://example.com/test/relasjon/begrep> ;
-         ns2:homepage <https://digdir.no> .
+    dcat:dataset <https://data.digdir.no/dataset/workshop-datasett1> ,
+                 <https://data.digdir.no/dataset/workshop-datasett2> ;
+    ns2:homepage <https://digdir.no> .
 
 <https://data.digdir.no/dataset/workshop-datasett1> a dcat:Dataset ;
+    dct:identifier "https://data.digdir.no/dataset/workshop-datasett1" ;
     dct:creator <https://data.brreg.no/enhetsregisteret/api/enheter/991825827> ;
     dct:title "Datasett 1 til workshop"@nb ;
-    dct:description "Dette er et eksempel-datasettbeskrivelse til workshop"@nb ;
+    dct:description "Dette er en eksempel-datasettbeskrivelse til workshop"@nb ;
     dct:language <http://publications.europa.eu/resource/authority/language/NOR> ;
     dct:publisher <https://data.brreg.no/enhetsregisteret/api/enheter/991825827> ;
     dct:subject <https://concept-catalog.staging.fellesdatakatalog.digdir.no/collections/910244132/concepts/edc2ad1b-9927-4b55-91d4-247ade7c2bf6> ;
@@ -31,9 +33,10 @@
 
 
 <https://data.digdir.no/dataset/workshop-datasett2> a dcat:Dataset ;
+    dct:identifier "https://data.digdir.no/dataset/workshop-datasett2" ;
     dct:creator <https://data.brreg.no/enhetsregisteret/api/enheter/991825827> ;
     dct:title "Datasett 2 til workshop"@nb ;
-    dct:description "Dette er et eksempel-datasettbeskrivelse til workshop"@nb ;
+    dct:description "Dette er en eksempel-datasettbeskrivelse til workshop"@nb ;
     dct:language <http://publications.europa.eu/resource/authority/language/NOR> ;
     dct:publisher <https://data.brreg.no/enhetsregisteret/api/enheter/991825827> ;
     dcat:landingPage <https://www.digdir.no/> .
