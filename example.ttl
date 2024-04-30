@@ -11,6 +11,7 @@
     dct:identifier "https://data.digdir.no/catalog/workshop-katalog" ;
     dct:publisher <https://data.brreg.no/enhetsregisteret/api/enheter/991825827> ;
     dct:title "Eksempelkatalog til workshop"@nb ;
+    dct:description "Katalog for å vise eksempler til workshop"@nb ;
     dcat:dataset <https://data.digdir.no/dataset/workshop-datasett1> ,
                  <https://data.digdir.no/dataset/workshop-datasett2> ;
     ns2:homepage <https://digdir.no> .
