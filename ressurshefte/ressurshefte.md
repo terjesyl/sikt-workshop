@@ -16,7 +16,7 @@
 
 Med disse byggeklossene kan vi lage rettede grafer som består av ting og relasjonene mellom tingene.
 
-TODO: lage tegning, erstatt bildet over med denne.
+![Rettet graf](./graph_example1.drawio.svg)
 
 ## Modellere Ada Lovelace
 
@@ -30,23 +30,23 @@ AdaLovelace kjenner CharlesBabbage
 
 AdaLovelace interesse Programmering
 
-TODO: legg til bilde av graf
+![Ada Lovelace](./ada_lovelace_graph.drawio.svg)
 
 ## Turtle - en RDF-syntaks
 
-- En URI skrives med "<" og ">", f.eks. `<https://example.org>`
-- Tekstverdier skrives med fnutter: `"en tekst"`
-- Man kan angi typen til en verdi, f.eks. heltall: `"1"^^<http://www.w3.org/2001/XMLSchema#integer>`
+- En URI skrives med "<" og ">", slik: `<https://example.org>`
+- Tekstverdier skrives med anførselstegn: `"en tekst"`
+- Man kan angi typen til en verdi, f.eks. heltall: `"1"^^<http://www.w3.org/2001/XMLSchema#integer>`, eller dato: `"2024-06-05"^^<http://www.w3.org/2001/XMLSchema#date>`
 - Du kan angi språket til teksten: `"An english text"@en` eller `"En tekst på bokmål"@nb`.
 
-Vi bruker ressurser som allerede er definert av andre, f.eks. RDF, Schema.org eller Friend of a friend (FOAF).
+Vi bruker ressurser som allerede er definert av andre, f.eks. RDF, Schema.org eller Friend of a friend (FOAF). Vi kan da uttrykke grafen som beskriver Ada Lovelace i RDF:
 
 ```turtle
-<https://example.org/people/adaLovelace> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
-<https://example.org/people/adaLovelace> <http://xmlns.com/foaf/0.1/name>                  "Ada Lovelace" .
-<https://example.org/people/adaLovelace> <https://schema.org/birthDate>                    "1815-12-10"^^<http://www.w3.org/2001/XMLSchema#date> .
-<https://example.org/people/adaLovelace> <https://schema.org/knows>                        <https://example.org/people/charlesBabbage> .
-<https://example.org/people/adaLovelace> <https://schema.org/knowsAbout>                   "Programmering"@nb .
+<https://example.org/people/adaLovelace>   <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>   <http://xmlns.com/foaf/0.1/Person> .
+<https://example.org/people/adaLovelace>   <http://xmlns.com/foaf/0.1/name>                    "Ada Lovelace" .
+<https://example.org/people/adaLovelace>   <https://schema.org/birthDate>                      "1815-12-10"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://example.org/people/adaLovelace>   <https://schema.org/knows>                          <https://example.org/people/charlesBabbage> .
+<https://example.org/people/adaLovelace>   <https://schema.org/knowsAbout>                     "Programmering"@nb .
 ```
 
 ### Prefikser/navnerom
@@ -209,10 +209,50 @@ Kopier og lim inn den utfylte beskrivelsen din fra oppgave 1.3 i feltet "Valider
 
 ### 1.5 Finn feilen
 
-I denne beskrivelsen skjuler det seg tre syntaksfeil. Bruk turtle-validatoren for å finne og rette dem: https://felixlohmeier.github.io/turtle-web-editor/
+I denne beskrivelsen skjuler det seg fire syntaksfeil. Bruk turtle-validatoren for å finne og rette dem: https://felixlohmeier.github.io/turtle-web-editor/
 
 ```turtle
-TODO
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcat:   <http://www.w3.org/ns/dcat#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix provno: <https://data.norge.no/vocabulary/provno#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix public_data: <https://data.norge.no/public_datasets/> .
+@prefix digdir: <https://digdir.no/>
+
+public_data:ai_projects_norwegian_state_dataset a dcat:Dataset ;
+    dct:identifier "https://data.norge.no/public_datasets/ai_projects_norwegian_state_dataset" ;
+    dct:title "Kunstig intelligens - oversikt over prosjekter i offentlig sektor"@nb ;
+    dct:description "En oversikt over kunstig intelligens-prosjekter i offentlig sektor. Oversikten er ikke komplett."@nb ;
+    dcat:theme <http://eurovoc.europa.eu/3030 , <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
+    dct:publisher <https://organization-catalogue.fellesdatakatalog.digdir.no/organizations/991825827> ;
+    prov:wasGeneratedBy provno:collectingFromThirdparty ;
+    dcat:distribution public_data:ai_projects_norwegian_state_distribution ;
+    dct:spatial <http://publications.europa.eu/resource/authority/country/NOR> ;
+    dct:keyword "kunstig intelligens"@nb , "offentlige prosjekter"@nb ;
+    dcat:contactPoint digdir:contactInfo ;
+    dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
+    foaf:page <https://data.norge.no/kunstig-intelligens> ;
+    .
+
+digdir:contactInfo a vcard:Organization ;
+    vcard:email "kunstigintelligens@digdir.no" .
+
+public_data:ai_projects_norwegian_state_distribution a dcat:Distribution ;
+    dcat:accessURL <https://github.com/Informasjonsforvaltning/ai-project-service/blob/main/ai_projects_norwegian_state%20-%20Oversatt_v1.csv> ;
+    dct:description "CSV-fil med oversikt over kunstig intelligens-prosjekter i offentlig sektor"@nb ;
+    dct:format <https://www.iana.org/assignments/media-types/text/csv> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/text/csv> ;
+    dct:license <http://publications.europa.eu/resource/authority/licence/APACHE_2_0>
+    foaf:page <https://github.com/Informasjonsforvaltning/ai-project-service> ;
+    dcat:downloadURL <https://raw.githubusercontent.com/Informasjonsforvaltning/ai-project-service/main/ai_projects_norwegian_state%20-%20Oversatt_v1.csv> ;
+    dct:language <http://publications.europa.eu/resource/authority/language/NOB> ;
+    dct:issued "2023-02-23"^^xsd:date ;
+
 ```
 
 ## OPPGAVER - For de viderekomne
