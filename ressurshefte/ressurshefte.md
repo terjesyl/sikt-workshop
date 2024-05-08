@@ -160,8 +160,8 @@ utdanning:forvaltningsdatabasen
     dct:description "SKRIV BOKMÅLSBESKRIVELSE HER"@nb, "SKRIV NYNORSKBESKRIVELSE HER"@nn ;
     dct:publisher   <https://organization-catalogue.fellesdatakatalog.digdir.no/organizations/NI_SIFRET_ORG_NUMMER_HER> ;
 
-    dcat:theme      <http://publications.europa.eu/resource/authority/data-theme/GOVE>
-    dct:identifier  "https://data.utdanning.no/forvaltningsdatabasen";
+    dcat:theme      <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
+    dct:identifier  "https://data.utdanning.no/forvaltningsdatabasen" .
 ```
 
 ### 1.2 Valider turtle-syntaksen
@@ -214,12 +214,12 @@ I denne beskrivelsen skjuler det seg fire syntaksfeil. Bruk turtle-validatoren f
 ```turtle
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dct:    <http://purl.org/dc/terms/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix foaf:   <http://xmlns.com/foaf/0.1/> .
 @prefix dcat:   <http://www.w3.org/ns/dcat#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
 @prefix provno: <https://data.norge.no/vocabulary/provno#> .
-@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vcard:  <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 
 @prefix public_data: <https://data.norge.no/public_datasets/> .
 @prefix digdir: <https://digdir.no/>
@@ -233,7 +233,7 @@ public_data:ai_projects_norwegian_state_dataset a dcat:Dataset ;
     prov:wasGeneratedBy provno:collectingFromThirdparty ;
     dcat:distribution public_data:ai_projects_norwegian_state_distribution ;
     dct:spatial <http://publications.europa.eu/resource/authority/country/NOR> ;
-    dct:keyword "kunstig intelligens"@nb , "offentlige prosjekter"@nb ;
+    dct:keyword "kunstig intelligens"@nb  "offentlige prosjekter"@nb ;
     dcat:contactPoint digdir:contactInfo ;
     dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
     foaf:page <https://data.norge.no/kunstig-intelligens> ;
@@ -252,6 +252,7 @@ public_data:ai_projects_norwegian_state_distribution a dcat:Distribution ;
     dcat:downloadURL <https://raw.githubusercontent.com/Informasjonsforvaltning/ai-project-service/main/ai_projects_norwegian_state%20-%20Oversatt_v1.csv> ;
     dct:language <http://publications.europa.eu/resource/authority/language/NOB> ;
     dct:issued "2023-02-23"^^xsd:date ;
+    .
 
 ```
 
@@ -271,7 +272,7 @@ Fyll ut de obligatoriske feltene for datasettet:
 
 For `dcat:theme` kan du bruke koden `TECH` fra et kjent EU-vokabular: `<http://publications.europa.eu/resource/authority/data-theme/TECH>`
 
-og distribusjonen:
+og fyll ut disse feltene for distribusjonen:
 
 - dcat:accessURL
 - dct: description
