@@ -264,58 +264,69 @@ Du sitter på et imaginært datasett med oversikt over all verdens programmering
 
 Fyll ut de obligatoriske feltene for datasettet:
 
-- dct:title - Tekst
+- dct:title - Tekst (bokmål og nynorsk)
 - dct:description - Tekst
-- dct:identifier - Tekst
 - dct:publisher - URI til organisasjon
 - dcat:theme - URI til kode.
 
-For `dcat:theme` kan du bruke koden `TECH` fra et kjent EU-vokabular: `<http://publications.europa.eu/resource/authority/data-theme/TECH>`
+For `dct:publisher`, se i oppgavene over hvordan det er gjort der.
 
-og fyll ut disse feltene for distribusjonen:
+For `dcat:theme` kan du bruke koden `TECH` fra et kjent EU-vokabular: `<http://publications.europa.eu/resource/authority/data-theme/TECH>`.
 
-- dcat:accessURL
-- dct: description
-- dct:format
-- dct:license
-- adms:status
-- dcatap:availability
+Og fyll ut disse feltene for distribusjonen:
+
+- dcat:accessURL - URL
+- dct: description - Tekst
+- dct:format - URI til kode
+- dct:license - URI til kode
+- adms:status - URI til kode
+
+For `dct:format` kan du f.eks. bruke koden `JSON`: `<http://publications.europa.eu/resource/authority/file-type/JSON>`
+
+For `dct:license` kan du f.eks. bruke koden `CC_BY_4_0`: `<http://publications.europa.eu/resource/authority/licence/CC_BY_4_0>`.
+
+For`adms:status`kan du f.eks. bruke koden`UnderDevelopment`: `<http://purl.org/adms/status/UnderDevelopment>`.
 
 ```turtle
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dct:    <http://purl.org/dc/terms/> .
 @prefix dcat:   <http://www.w3.org/ns/dcat#> .
 
-@prefix utdanning: <https://data.utdanning.no/> .
+@prefix programming: <https://example.org/catalogs/programming/> .
 
-utdanning:forvaltningsdatabasen
-    rdf:type        dcat:Dataset ;
-    dct:title       "Forvaltningsdatabasen"@nb, "Forvaltningsdatabasen"@nn ;
-    dct:description "Kartlegging av organiseringen til staten og ytre etater etter 1947"@nb ;
-    dct:publisher   <https://organization-catalogue.fellesdatakatalog.digdir.no/organizations/919477822> ;
+programming:languages
+    rdf:type           dcat:Dataset ;
+    dct:identifier     "https://example.org/catalogs/programming/languages" ;
+    dcat:distribution  programming:languages-distribution ;
+    # FYLL UT ...
+    .
 
-    dcat:theme      <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
-    dct:identifier  "https://data.utdanning.no/forvaltningsdatabasen" ;
-
-    dcat:distribution LENK-TIL-DISTRIBUSJONEN-UNDER .
-
-utdanning:forvaltningsdatabasen-distribusjon
+programming:languages-distribution
     rdf:type dcat:Distribution ;
     # FYLL UT ...
+    dcat:accessService <programming:languages-dataservice> .
     .
 
-utdanning:forvaltningsdatabasen-api
+programming:languages-dataservice
     rdf:type            dcat:DataService ;
-    # FYLL UT ...
-    .
+    dcat:accessURL      <https://example.org/api/programming/languages/> .
 ```
 
 ## Oppgaver - For de modige
 
 ### 3.1
 
-TODO: scenario
-Lag en datasettbeskrivelse.
+Dere sitter på et datasett som inneholder karakterer knyttet til studenter fra alle eksamener tatt ved høgskoler og universiteter i Norge. Denne dataen er ikke åpen, men dere vil allikevel synliggjøre at dataen fins. I tillegg er dataen tilgjengelig for autoriserte parter gjennom et API.
+
+Lag en beskrivelse for dette datasettet.
+
+- Husk å legge til de prefiksene du trenger, og definer dine egne om ønskelig.
+- Bruk passende koder fra kodelistene nevnt i oppgave 2.1, som vokabularene under http://publications.europa.eu/resource/authority.
+
+```turtle
+# FYLL UT
+
+```
 
 ## Validering
 
