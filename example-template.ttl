@@ -1,0 +1,99 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix cpsv: <http://purl.org/vocab/cpsv#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+# Fyll ut objektene (Bytt ut plassholdere (...) med ekte data).
+
+# Dette er en katalog med kun obligatoriske felt
+<https://data.digdir.no/catalog/workshop-katalog> a dcat:Catalog ;
+    dct:description ... ;
+    dct:identifier ... ;
+    dct:title ... ;
+    dct:publisher ... .
+
+# Dette er et datasett med kun obligatoriske felt
+<https://data.digdir.no/dataset/workshop-datasett-mandatory> a dcat:Dataset ;
+    dct:description ... ;
+    dct:identifier  ... ;
+    dcat:theme ... ;
+    dct:title ... ;
+    dct:publisher ... .
+
+# Dette er et datasett med alle obligatoriske felt og anbefalte felt
+<https://data.digdir.no/dataset/workshop-datasett-recommended> a dcat:Dataset ;
+    dct:description ... ;
+    dct:identifier  ... ;
+    dcat:theme ... ;
+    dct:title ... ;
+    dct:publisher ... ;
+    # Anbefalte felt
+    dct:subject ... ;
+    prov:wasGeneratedBy ... ;
+    dcat:distribution ... ;
+    dct:spatial ... ;
+    dcat:keyword ... ;
+    cpsv:follows ... ;
+    dcat:contactPoint ... ;
+    dct:temporal ... ;
+    dct:accessRights ... .
+
+# Dette er en distribusjon med alle obligatoriske felt, anbefalte felt og valgfrie felt
+<https://data.digdir.no/dataset/workshop-datasett-optional> a dcat:Dataset ;
+    dct:description ... ;
+    dct:identifier  ... ;
+    dcat:theme ... ;
+    dct:title ... ;
+    dct:publisher ... ;
+    # Anbefalte felt
+    dct:subject ... ;
+    prov:wasGeneratedBy ... ;
+    dcat:distribution ... ;
+    dct:spatial ... ;
+    dcat:keyword ... ;
+    cpsv:follows ... ;
+    dcat:contactPoint ... ;
+    dct:temporal ... ;
+    dct:accessRights ... ;
+    # Valgfrie felt
+    adms:identifier ... ;
+    foaf:page ... ;
+    adms:sample ... ;
+    dct:modified ... ;
+    dct:isPartOf ... ;
+    dct:isRequiredBy ... ;
+    dct:isReferencedBy ... ;
+    dct:isVersionOf ... ;
+    dct:replaces ... ;
+    dct:isReplacedBy ... ;
+    dcat:prev ... ;
+    dct:accrualPeriodicity ... ;
+    dct:hasPart ... ;
+    dqv:hasQualityAnnotation ... ;
+    dqv:hasQualityMeasurement ... ;
+    dct:hasVersion ... ;
+    dct:conformsTo ... ;
+    dcat:inSeries ... ;
+    dct:source ... ;
+    dct:requires ... ;
+    prov:qualifiedAttribution ... ;
+    dcat:qualifiedRelation ... ;
+    dcat:landingPage ... ;
+    dct:provenance ... ;
+    dct:creator ... ;
+    dct:references ... ;
+    dct:relation ... ;
+    dcat:spatialResolutionInMeters ... ;
+    dct:language ... ;
+    dcat:temporalResolution ... ;
+    dct:type ... ;
+    dct:issued ... ;
+    owl:versionInfo ... ;
+    adms:versionNotes ... .
