@@ -154,7 +154,6 @@ Hint: sjekk DCAT-AP-NO-spesifikasjonen for hvilke felt som er obligatoriske for 
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dct:    <http://purl.org/dc/terms/> .
 @prefix dcat:   <http://www.w3.org/ns/dcat#> .
-
 @prefix utdanning: <https://data.utdanning.no/> .
 
 utdanning:forvaltningsdatabasen
@@ -162,7 +161,7 @@ utdanning:forvaltningsdatabasen
 
     dct:title       "SKRIV BOKMÅLSTITTEL HER"@nb, "SKRIV NYNORSKITTEL HER"@nn ;
     dct:description "SKRIV BOKMÅLSBESKRIVELSE HER"@nb, "SKRIV NYNORSKBESKRIVELSE HER"@nn ;
-    dct:publisher   <https://organization-catalogue.fellesdatakatalog.digdir.no/organizations/NI_SIFRET_ORG_NUMMER_HER> ;
+    dct:publisher   <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/NI_SIFRET_ORG_NUMMER_HER> ;
 
     dcat:theme      <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
     dct:identifier  "https://data.utdanning.no/forvaltningsdatabasen" .
@@ -178,7 +177,6 @@ Sjekk at Turtle-syntaksen er korrekt ved å kopiere den utfylte beskrivelsen din
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dct:    <http://purl.org/dc/terms/> .
 @prefix dcat:   <http://www.w3.org/ns/dcat#> .
-
 @prefix utdanning: <https://data.utdanning.no/> .
 
 utdanning:forvaltningsdatabasen
@@ -186,7 +184,7 @@ utdanning:forvaltningsdatabasen
 
     dct:title       "Forvaltningsdatabasen"@nb, "Forvaltningsdatabasen"@nn ;
     dct:description "Kartlegging av organiseringen til staten og ytre etater etter 1947"@nb ;
-    dct:publisher   <https://organization-catalogue.fellesdatakatalog.digdir.no/organizations/919477822> ;
+    dct:publisher   <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/919477822> ;
 
     dcat:theme      <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
     dct:identifier  "https://data.utdanning.no/forvaltningsdatabasen";
