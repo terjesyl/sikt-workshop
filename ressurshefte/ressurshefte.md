@@ -2,11 +2,11 @@
 
 ## Resource Description Framework (RDF) og lenkede data
 
-- "Alt" består av navn (URI-er) eller verdier ("Literals")
+- "Alt" består av navn (URI-er) og/eller verdier ("Literals")
 - En URI ("Uniform Resource Identifier") er et navn som peker til en ressurs.
   - URI-en er en global, unik identifikator.
   - _Kan_ peke til en faktisk ressurs på nettet, men må ikke.
-- Byggeklossen: subjekt, predikat, objekt
+- Byggeklossen i en rdf-graf er: subjekt, predikat, objekt
   - _Trippel_
   - **Fakta** eller **utsagn**
 - (Forenklet) huskeregel:
@@ -20,15 +20,19 @@ Med disse byggeklossene kan vi lage rettede grafer som består av ting og relasj
 
 ## Modellere Ada Lovelace
 
-AdaLovelace type Person
+Vi kan modellere personopplysninegen til en fiktiv person Ada Lovelace på følgende måte:
 
-AdaLovelace navn Ada Lovelace
+navn: Ada Lovelace  
+fødselsdato: 10.12.1815  
+bekjente: Charles Babbage  
+interesse: Programmering  
 
-AdaLovelace født 10.12.1815
-
-AdaLovelace kjenner CharlesBabbage
-
-AdaLovelace interesse Programmering
+Vi formulerer dette til en graf (subjekt, predikat, objekt):  
+AdaLovelace har type Person  
+AdaLovelace har navn "Ada Lovelace"  
+AdaLovelace har fødselsdato 10.12.1815  
+AdaLovelace kjenner Charles Babbage  
+AdaLovelace har interesse Programmering  
 
 ![Ada Lovelace](./ada_lovelace_graph.drawio.svg)
 
@@ -142,10 +146,10 @@ Gjeldende versjon: https://data.norge.no/specification/dcat-ap-no
 - Viser hvilke etablerte vokabularer og kodelister som skal brukes.
 - Angir multiplisitet for feltene (0..1, 1..1, 1..n)
 
-## OPPGAVER - For de ferske
+## OPPGAVER - vanskelighetsgrad: Lett
 
 ### 1.1 Fyll ut obligatoriske felter for en datasettbeskrivelse
-
+Hint: sjekk DCAT-AP-NO-spesifikasjonen for hvilke felt som er obligatoriske for en datasettbeskrivelse.
 ```turtle
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dct:    <http://purl.org/dc/terms/> .
@@ -256,7 +260,7 @@ public_data:ai_projects_norwegian_state_distribution a dcat:Distribution ;
 
 ```
 
-## OPPGAVER - For de viderekomne
+## OPPGAVER - vanskelighetsgrad: Middels
 
 ### 2.1
 
@@ -312,7 +316,7 @@ programming:languages-dataservice
     dcat:accessURL      <https://example.org/api/programming/languages/> .
 ```
 
-## Oppgaver - For de modige
+## Oppgaver - vanskelighetsgrad: Vanskelig
 
 ### 3.1
 
