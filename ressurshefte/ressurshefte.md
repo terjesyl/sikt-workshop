@@ -170,6 +170,14 @@ Sjekk at Turtle-syntaksen er korrekt ved å kopiere den utfylte beskrivelsen din
 
 ### 1.3. Legg til API-beskrivelse
 
+Når du skal peke fra en ressurs til en annen oppgir du bare URI-en til ressursen i objekt-posisjon. For eksempel angir du distribusjonen til et datasett med trippelet:
+
+- `utdanning:forvaltningsdatabasen dcat:distribution utdanning:forvaltningsdatabasen-distribusjon .`.
+- Husk at dette er akkurat det samme som å skrive
+  - `<https://data.utdanning.no/forvaltningsdatabasen> <http://www.w3.org/ns/dcat#distribution> <https://data.utdanning.no/forvaltningsdatabasen-distribusjon> .`.
+
+Valider Turtle-syntaksen underveis.
+
 ```turtle
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dct:    <http://purl.org/dc/terms/> .
@@ -187,7 +195,7 @@ utdanning:forvaltningsdatabasen
     dcat:theme      <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
     dct:identifier  "https://data.utdanning.no/forvaltningsdatabasen";
 
-    dcat:distribution LENK-TIL-DISTRIBUSJONS-RESSURSEN-HER .
+    dcat:distribution PEK-TIL-DISTRIBUSJONS-RESSURSEN-UNDER .
 
 utdanning:forvaltningsdatabasen-distribusjon
     rdf:type dcat:Distribution ;
@@ -203,9 +211,10 @@ utdanning:forvaltningsdatabasen-api
 
 ### 1.4 Valider mot DCAT-AP-NO-validatoren
 
-Validatoren til data.norge.no (https://data.norge.no/validator)
-
-Kopier og lim inn den utfylte beskrivelsen din fra oppgave 1.3 i feltet "Valider tekst", trykk "Valider" nederst på siden, og se hvilke meldinger du får.
+1. Gå til validatoren til data.norge.no (https://data.norge.no/validator)
+2. Kopier og lim inn den utfylte beskrivelsen din fra oppgave 1.3 i feltet "Valider tekst"
+3. Under "Regelsett" velger du "Regelsett lenke" og limer inn lenken https://raw.githubusercontent.com/Informasjonsforvaltning/dcat-ap-no/develop/shacl/DCAT-AP-NO-shacl_shapes_2.00.ttl . Da bruker du siste versjon av valideringsreglene.
+4. Trykk "Valider" nederst på siden, og se hvilke meldinger du får.
 
 ### 1.5 Finn feilen
 
@@ -330,9 +339,15 @@ Lag en beskrivelse for dette datasettet.
 
 ## Validering
 
+### Turtle-syntaks
+
 For å validere Turtle-syntaks: https://felixlohmeier.github.io/turtle-web-editor/
 
+### DCAT-AP-NO
+
 For å validere datasettbeskrivelsen mot DCAT-AP-NO: https://data.norge.no/validator
+
+Husk å legge til lenken https://raw.githubusercontent.com/Informasjonsforvaltning/dcat-ap-no/develop/shacl/DCAT-AP-NO-shacl_shapes_2.00.ttl under "Regelsett" -> "Regelsett lenke" for å validere mot siste versjon av reglene.
 
 ## Høsting
 
