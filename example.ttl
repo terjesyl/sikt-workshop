@@ -1,43 +1,43 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix ns1: <http://www.w3.org/2006/vcard/ns#> .
-@prefix ns2: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 
 <https://data.digdir.no/catalog/workshop-katalog> a dcat:Catalog ;
     dct:identifier "https://data.digdir.no/catalog/workshop-katalog" ;
-    dct:publisher <https://data.brreg.no/enhetsregisteret/api/enheter/991825827> ;
+    dct:publisher <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/991825827> ;
     dct:title "Eksempelkatalog til workshop"@nb ;
     dct:description "Katalog for å vise eksempler til workshop"@nb ;
     dcat:dataset <https://data.digdir.no/dataset/workshop-datasett1> ,
                  <https://data.digdir.no/dataset/workshop-datasett2> ;
-    ns2:homepage <https://digdir.no> .
+    foaf:homepage <https://digdir.no> .
 
 <https://data.digdir.no/dataset/workshop-datasett1> a dcat:Dataset ;
     dct:identifier "https://data.digdir.no/dataset/workshop-datasett1" ;
-    dct:creator <https://data.brreg.no/enhetsregisteret/api/enheter/991825827> ;
+    dct:creator <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/991825827> ;
     dct:title "Datasett 1 til workshop"@nb ;
     dct:description "Dette er en eksempel-datasettbeskrivelse til workshop"@nb ;
     dct:language <http://publications.europa.eu/resource/authority/language/NOR> ;
-    dct:publisher <https://data.brreg.no/enhetsregisteret/api/enheter/991825827> ;
+    dct:publisher <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/991825827> ;
     dct:subject <https://concept-catalog.staging.fellesdatakatalog.digdir.no/collections/910244132/concepts/edc2ad1b-9927-4b55-91d4-247ade7c2bf6> ;
     dct:temporal [ a dct:PeriodOfTime ;
             dcat:endDate "2024-01-01"^^xsd:date ;
             dcat:startDate "2002-01-01"^^xsd:date ] ;
-    dcat:contactPoint [ a ns1:Organization ;
-            ns1:hasEmail <mailto:fellesdatakatalog@digdir.no> ;
-            ns1:hasOrganizationName "DIGDIR Felles datakatalog"@nb ] ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:fellesdatakatalog@digdir.no> ;
+            vcard:hasOrganizationName "DIGDIR Felles datakatalog"@nb ] ;
     dcat:landingPage <https://www.digdir.no/> .
 
 
 <https://data.digdir.no/dataset/workshop-datasett2> a dcat:Dataset ;
     dct:identifier "https://data.digdir.no/dataset/workshop-datasett2" ;
-    dct:creator <https://data.brreg.no/enhetsregisteret/api/enheter/991825827> ;
+    dct:creator <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/991825827> ;
     dct:title "Datasett 2 til workshop"@nb ;
     dct:description "Dette er en eksempel-datasettbeskrivelse til workshop"@nb ;
     dct:language <http://publications.europa.eu/resource/authority/language/NOR> ;
-    dct:publisher <https://data.brreg.no/enhetsregisteret/api/enheter/991825827> ;
+    dct:publisher <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/991825827> ;
     dcat:landingPage <https://www.digdir.no/> .

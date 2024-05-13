@@ -158,7 +158,7 @@ utdanning:forvaltningsdatabasen
 
     dct:title       "SKRIV BOKMÅLSTITTEL HER"@nb, "SKRIV NYNORSKITTEL HER"@nn ;
     dct:description "SKRIV BOKMÅLSBESKRIVELSE HER"@nb, "SKRIV NYNORSKBESKRIVELSE HER"@nn ;
-    dct:publisher   <https://organization-catalogue.fellesdatakatalog.digdir.no/organizations/NI_SIFRET_ORG_NUMMER_HER> ;
+    dct:publisher   <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/NI_SIFRET_ORG_NUMMER_HER> ;
 
     dcat:theme      <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
     dct:identifier  "https://data.utdanning.no/forvaltningsdatabasen" .
@@ -182,7 +182,7 @@ utdanning:forvaltningsdatabasen
 
     dct:title       "Forvaltningsdatabasen"@nb, "Forvaltningsdatabasen"@nn ;
     dct:description "Kartlegging av organiseringen til staten og ytre etater etter 1947"@nb ;
-    dct:publisher   <https://organization-catalogue.fellesdatakatalog.digdir.no/organizations/919477822> ;
+    dct:publisher   <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/919477822> ;
 
     dcat:theme      <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
     dct:identifier  "https://data.utdanning.no/forvaltningsdatabasen";
@@ -229,7 +229,7 @@ public_data:ai_projects_norwegian_state_dataset a dcat:Dataset ;
     dct:title "Kunstig intelligens - oversikt over prosjekter i offentlig sektor"@nb ;
     dct:description "En oversikt over kunstig intelligens-prosjekter i offentlig sektor. Oversikten er ikke komplett."@nb ;
     dcat:theme <http://eurovoc.europa.eu/3030 , <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
-    dct:publisher <https://organization-catalogue.fellesdatakatalog.digdir.no/organizations/991825827> ;
+    dct:publisher <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/991825827> ;
     prov:wasGeneratedBy provno:collectingFromThirdparty ;
     dcat:distribution public_data:ai_projects_norwegian_state_distribution ;
     dct:spatial <http://publications.europa.eu/resource/authority/country/NOR> ;
