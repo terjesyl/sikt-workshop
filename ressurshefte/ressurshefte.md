@@ -6,7 +6,7 @@
 - En URI ("Uniform Resource Identifier") er et navn som peker til en ressurs.
   - URI-en er en global, unik identifikator.
   - _Kan_ peke til en faktisk ressurs på nettet, men må ikke.
-- Byggeklossen: subjekt, predikat, objekt
+- Byggeklossen i en RDF-graf: subjekt, predikat, objekt
   - _Trippel_
   - **Fakta** eller **utsagn**
 - (Forenklet) huskeregel:
