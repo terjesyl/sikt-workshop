@@ -1,0 +1,25 @@
+# Under er en beskrivelse av datasettet Forvaltningsdatabasen, med de obligatoriske feltene i henhold til DCAT-AP-NO.
+# Men noen felter mangler riktig innhold:
+# - Tittel under dct:title
+# - Beskrivelse ved dct:description.
+# - Organisasjonsnummer i URI-en ved dct:publisher
+# Erstatt teksten i store bokstaver med din egen tekst.
+# Du kan enten søke opp Forvaltningsdatabasen for å oppgi så korrekt informasjon som mulig,
+# eller dikte opp informasjon selv.
+
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix dcat:   <http://www.w3.org/ns/dcat#> .
+
+# Vår egendefinerte prefix
+@prefix utdanning: <https://data.utdanning.no/> .
+
+utdanning:forvaltningsdatabasen
+    rdf:type        dcat:Dataset ;
+
+    dct:title       "SKRIV BOKMÅLSTITTEL HER"@nb, "SKRIV NYNORSKITTEL HER"@nn ;
+    dct:description "SKRIV BOKMÅLSBESKRIVELSE HER"@nb, "SKRIV NYNORSKBESKRIVELSE HER"@nn ;
+    dct:publisher   <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/NI_SIFRET_ORG_NUMMER_HER> ;
+
+    dcat:theme      <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
+    dct:identifier  "https://data.utdanning.no/forvaltningsdatabasen" .

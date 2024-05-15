@@ -16,7 +16,7 @@
 
 Med disse byggeklossene kan vi lage rettede grafer som består av ting og relasjonene mellom tingene.
 
-![Rettet graf](./graph_example1.drawio.svg)
+![Rettet graf](./imgs/graph_example1.drawio.svg)
 
 ## Modellere Ada Lovelace
 
@@ -30,7 +30,7 @@ AdaLovelace kjenner CharlesBabbage
 
 AdaLovelace interesse Programmering
 
-![Ada Lovelace](./ada_lovelace_graph.drawio.svg)
+![Ada Lovelace](./imgs/ada_lovelace_graph.drawio.svg)
 
 ## Turtle - en RDF-syntaks
 
@@ -146,11 +146,23 @@ Gjeldende versjon: https://data.norge.no/specification/dcat-ap-no
 
 ### 1.1 Fyll ut obligatoriske felter for en datasettbeskrivelse
 
-```turtle
+```txt
+# // oppgaver/1_1.ttl
+
+# Under er en beskrivelse av datasettet Forvaltningsdatabasen, med de obligatoriske feltene i henhold til DCAT-AP-NO.
+# Men noen felter mangler riktig innhold:
+# - Tittel under dct:title
+# - Beskrivelse ved dct:description.
+# - Organisasjonsnummer i URI-en ved dct:publisher
+# Erstatt teksten i store bokstaver med din egen tekst.
+# Du kan enten søke opp Forvaltningsdatabasen for å oppgi så korrekt informasjon som mulig,
+# eller dikte opp informasjon selv.
+
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dct:    <http://purl.org/dc/terms/> .
 @prefix dcat:   <http://www.w3.org/ns/dcat#> .
 
+# Vår egendefinerte prefix
 @prefix utdanning: <https://data.utdanning.no/> .
 
 utdanning:forvaltningsdatabasen
@@ -162,6 +174,9 @@ utdanning:forvaltningsdatabasen
 
     dcat:theme      <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
     dct:identifier  "https://data.utdanning.no/forvaltningsdatabasen" .
+
+
+Test!
 ```
 
 ### 1.2 Valider turtle-syntaksen
