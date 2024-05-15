@@ -8,6 +8,7 @@
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix utdanning: <https://data.utdanning.no/> .
+@prefix adms:	<http://www.w3.org/ns/adms#> .
 
 <https://data.digdir.no/catalog/workshop-katalog> a dcat:Catalog ;
     dct:identifier "https://data.digdir.no/catalog/workshop-katalog" ;
@@ -16,7 +17,8 @@
     dct:description "Katalog for å vise eksempler til workshop"@nb ;
     dcat:dataset <https://data.digdir.no/dataset/workshop-datasett1> ,
                  <https://data.digdir.no/dataset/workshop-datasett2> ,
-                utdanning:forvaltningsdatabasen ;
+                utdanning:forvaltningsdatabasen ,
+                <https://testdirektoratet.no/test-datasett> ;
     foaf:homepage <https://digdir.no> .
 
 utdanning:forvaltningsdatabasen
@@ -54,3 +56,15 @@ utdanning:forvaltningsdatabasen
     dct:language <http://publications.europa.eu/resource/authority/language/NOR> ;
     dct:publisher <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/991825827> ;
     dcat:landingPage <https://www.digdir.no/> .
+
+<https://testdirektoratet.no/test-datasett>
+    a               dcat:Dataset ;
+    dct:title       "Test datasett"@nb, "Test datasett"@nn ;
+    dct:description "Beskrivelse av datasettet"@nb, "Beskriving av datasettet"@nn ;
+    dct:publisher   <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/123456789> ;
+    dcat:theme      <http://publications.europa.eu/resource/authority/data-theme/TECH> ;
+	dcat:accessURL	<https://testdirektoratet.no/endepunkt> ;
+	dct:format		<http://publications.europa.eu/resource/authority/file-type/JSON> ;
+	dct:license		<http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+	adms:status		<http://purl.org/adms/status/UnderDevelopment> ;
+    dct:identifier  "https://testdirektoratet.no/test-datasett" .
