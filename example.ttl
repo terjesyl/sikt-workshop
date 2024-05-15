@@ -6,6 +6,8 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix utdanning: <https://data.utdanning.no/> .
 
 <https://data.digdir.no/catalog/workshop-katalog> a dcat:Catalog ;
     dct:identifier "https://data.digdir.no/catalog/workshop-katalog" ;
@@ -13,8 +15,19 @@
     dct:title "Eksempelkatalog til workshop"@nb ;
     dct:description "Katalog for å vise eksempler til workshop"@nb ;
     dcat:dataset <https://data.digdir.no/dataset/workshop-datasett1> ,
-                 <https://data.digdir.no/dataset/workshop-datasett2> ;
+                 <https://data.digdir.no/dataset/workshop-datasett2> ,
+                utdanning:forvaltningsdatabasen ;
     foaf:homepage <https://digdir.no> .
+
+utdanning:forvaltningsdatabasen
+    rdf:type        dcat:Dataset ;
+
+    dct:title       "Datasettbeskrivelse"@nb, "Datasettbeskrivelse"@nn ;
+    dct:description "Beskriver et datasett"@nb, "Beskriv eit datasett"@nn ;
+    dct:publisher   <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/970018131> ;
+
+    dcat:theme      <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
+    dct:identifier  "https://data.utdanning.no/forvaltningsdatabasen" .
 
 <https://data.digdir.no/dataset/workshop-datasett1> a dcat:Dataset ;
     dct:identifier "https://data.digdir.no/dataset/workshop-datasett1" ;
