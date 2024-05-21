@@ -127,7 +127,7 @@ Når vi gjentar [ subjekt predikat ] kan vi skrive det om til
 ```turtle
 people:adaLovelace   rdf:type        foaf:Person ;
           # ... kommentert vekk
-          schema:knowsAbout "musikk"@nb , "matlaging"@nb , "programmering"@nb .
+          schema:knowsAbout "musikk"@nb , "matematikk"@nb , "programmering"@nb .
 ```
 
 Hvert utsagn som gjenbruk subjekt+predikat avsluttes med `,`.
@@ -162,7 +162,7 @@ Gjeldende versjon: https://data.norge.no/specification/dcat-ap-no
 @prefix dct:    <http://purl.org/dc/terms/> .
 @prefix dcat:   <http://www.w3.org/ns/dcat#> .
 
-# Vår egendefinerte prefix
+# Vår egendefinerte prefix:
 @prefix utdanning: <https://data.utdanning.no/> .
 
 utdanning:forvaltningsdatabasen
@@ -175,21 +175,27 @@ utdanning:forvaltningsdatabasen
     dcat:theme      <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
     dct:identifier  "https://data.utdanning.no/forvaltningsdatabasen" .
 
-
-Test!
 ```
 
 ### 1.2 Valider turtle-syntaksen
 
-Sjekk at Turtle-syntaksen er korrekt ved å kopiere den utfylte beskrivelsen din fra oppgave 1.1, lime den inn i tekstfeltet på https://felixlohmeier.github.io/turtle-web-editor/ og trykk på "Validate!".
+Sjekk at Turtle-syntaksen er korrekt ved å kopiere den utfylte beskrivelsen din fra oppgave 1.1, lime den inn i tekstfeltet på https://felixlohmeier.github.io/turtle-web-editor/ og trykk på "Validate!". Du skal få tilbakemelding om at syntaksen er korrekt.
+
+Hvis du får en feilmelding får du beskjed om linjenummer validatoren feiler på. Prøv å rette feilen og valider på nytt.
 
 ### 1.3. Legg til API-beskrivelse
 
-Når du skal peke fra en ressurs til en annen oppgir du bare URI-en til ressursen i objekt-posisjon. For eksempel angir du distribusjonen til et datasett med trippelet:
+Under er en ufullstendig beskrivelse av et datasett som tilbys over et API. Erstatt URI-ene og tekstene i store bokstaver med passende innhold.
 
-- `utdanning:forvaltningsdatabasen dcat:distribution utdanning:forvaltningsdatabasen-distribusjon .`.
+- For dcat:endpointURL kan du finne et reelt endepunkt eller dikte opp et eget.
+- For dct:title kan du finne på et tittel for API-et.
+- For dcat:servesDataset må du peke til datasett-ressursen i beskrivelsen.
+
+Når du skal peke fra en ressurs til en annen oppgir du bare URI-en til ressursen i objekt-posisjon. For eksempel angir du datatjenesten/API-et til et datasett med trippelet:
+
+- `utdanning:forvaltningsdatabasen-api dcat:servesDataset utdanning:forvaltningsdatabasen .`.
 - Husk at dette er akkurat det samme som å skrive
-  - `<https://data.utdanning.no/forvaltningsdatabasen> <http://www.w3.org/ns/dcat#distribution> <https://data.utdanning.no/forvaltningsdatabasen-distribusjon> .`.
+  - `<https://data.utdanning.no/forvaltningsdatabasen-api> <http://www.w3.org/ns/dcat#servesDataset> <https://data.utdanning.no/forvaltningsdatabasen> .`.
 
 Valider Turtle-syntaksen underveis.
 
@@ -209,19 +215,16 @@ utdanning:forvaltningsdatabasen
 
     dcat:theme      <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
     dct:identifier  "https://data.utdanning.no/forvaltningsdatabasen";
-
-    dcat:distribution PEK-TIL-DISTRIBUSJONS-RESSURSEN-UNDER .
-
-utdanning:forvaltningsdatabasen-distribusjon
-    rdf:type dcat:Distribution ;
-    dcat:accessURL     <URL-FOR-Å-LASTE-NED-FIL> ;
-    dcat:accessService PEK-TIL-DATATJENESTE-RESSURSEN-UNDER .
+    .
 
 utdanning:forvaltningsdatabasen-api
     rdf:type            dcat:DataService ;
-    dcat:endpointURL    <URL-TIL-APIETS-ENDEPUNKT> ;
     dct:identifier      "https://data.utdanning.no/forvaltningsdatabasen-api" ;
-    dct:title           "FYLL-INN"@nb, "FYLL-INN"@nn .
+    dct:title           "FYLL-INN"@nb, "FYLL-INN"@nn ;
+    dcat:endpointURL    <URL-TIL-APIETS-ENDEPUNKT> ;
+    dcat:servesDataset  <URI-TIL-DATASETT-RESSURSEN-OVER> ;
+    .
+
 ```
 
 ### 1.4 Valider mot DCAT-AP-NO-validatoren
@@ -231,9 +234,13 @@ utdanning:forvaltningsdatabasen-api
 3. Under "Regelsett" velger du "Regelsett lenke" og limer inn lenken https://raw.githubusercontent.com/Informasjonsforvaltning/dcat-ap-no/develop/shacl/DCAT-AP-NO-shacl_shapes_2.00.ttl . Da bruker du siste versjon av valideringsreglene.
 4. Trykk "Valider" nederst på siden, og se hvilke meldinger du får.
 
+Merk: Hvis du har fylt ut alle de obligatoriske feltene for hver ressurs i beskrivelsen skal det ikke komme noen feilmeldinger. Men det kan være at du får noen feilmeldinger fordi de eksterne ressursene beskrivelsen peker til (som f.eks. en kodeliste) har noen mangler. Om du er i tvil hva feilen kommer av, spør en av oss.
+
 ### 1.5 Finn feilen
 
 I denne beskrivelsen skjuler det seg fire syntaksfeil. Bruk turtle-validatoren for å finne og rette dem: https://felixlohmeier.github.io/turtle-web-editor/
+
+Validatoren skal til slutt gi beskjed om at syntaksen er korrekt.
 
 ```turtle
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -284,7 +291,7 @@ public_data:ai_projects_norwegian_state_distribution a dcat:Distribution ;
 
 ### 2.1
 
-Du sitter på et imaginært datasett med oversikt over all verdens programmeringsspråk, historiske og nåværende. Du vil nå formidle til verden at du sitter på denne dataen.
+Du sitter på et imaginært datasett med oversikt over all verdens programmeringsspråk, historiske og nåværende. Datasettet er tilgjengelig som en statisk JSON-fil. Du vil nå formidle til verden at du sitter på denne dataen.
 
 Fyll ut de obligatoriske feltene for datasettet:
 
@@ -297,7 +304,7 @@ For `dct:publisher`, se i oppgavene over hvordan det er gjort der.
 
 For `dcat:theme` kan du bruke koden `TECH` fra et kjent EU-vokabular: `<http://publications.europa.eu/resource/authority/data-theme/TECH>`.
 
-Og fyll ut disse feltene for distribusjonen:
+Og legg til disse egenskapene for distribusjonen:
 
 - dcat:accessURL - URL
 - dct: description - Tekst
@@ -315,6 +322,7 @@ For`adms:status`kan du f.eks. bruke koden`UnderDevelopment`: `<http://purl.org/a
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dct:    <http://purl.org/dc/terms/> .
 @prefix dcat:   <http://www.w3.org/ns/dcat#> .
+@prefix adms:   <http://www.w3.org/ns/adms#> .
 
 @prefix programming: <https://example.org/catalogs/programming/> .
 
@@ -328,12 +336,7 @@ programming:languages
 programming:languages-distribution
     rdf:type dcat:Distribution ;
     # FYLL UT ...
-    dcat:accessService <programming:languages-dataservice> .
     .
-
-programming:languages-dataservice
-    rdf:type            dcat:DataService ;
-    dcat:accessURL      <https://example.org/api/programming/languages/> .
 ```
 
 ## Oppgaver - For de modige
