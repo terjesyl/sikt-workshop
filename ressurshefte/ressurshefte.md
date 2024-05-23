@@ -55,14 +55,6 @@ Vi bruker ressurser som allerede er definert av andre, f.eks. RDF, Schema.org el
 <https://example.org/people/adaLovelace>   <https://schema.org/knowsAbout>                     "Programmering"@nb .
 ```
 
-#### RDF-serialiseringer/syntakser
-
-| Mediatype     | File extension |
-| ------------- | -------------- |
-| `text/turtle` | `.ttl`         |
-
-TODO
-
 #### Prefikser/navnerom
 
 Med prefikser (forkortelser) kan vi erstatte URL-ene med prefiksen vi har definert.
@@ -145,6 +137,22 @@ people:adaLovelace   rdf:type        foaf:Person ;
 ```
 
 Hvert utsagn som gjenbruk subjekt+predikat avsluttes med `,`.
+
+#### RDF-serialiseringer/syntakser
+
+Det fins flere ulike måter å uttrykke RDF-grafer. I tabellen under har vi listet noen av de vanligste syntaksene for å serialisere RDF. Du trenger ikke kunne alle, bare å kjenne til at de fins.
+
+RDF-verktøy og biblioteker kan lese til og skrive fra en eller flere av disse syntaksene. De facto standard er RDF/XML, men Turtle støttes også av de aller fleste verktøy.
+
+| Navn      | Mediatype               | File extension |
+| --------- | ----------------------- | -------------- |
+| Turtle    | `text/turtle`           | `.ttl`         |
+| RDF/XML   | `application/rdf+xml`   | `.rdf`         |
+| JSON-LD   | `application/ld+json`   | `.jsonld`      |
+| N-Triples | `application/n-triples` | `.nt`          |
+| N-Quads   | `application/n-quads`   | `.nq`          |
+| TriG      | `application/trig`      | `.trig`        |
+| Notation3 | `text/n3;charset=utf-8` | `.n3`          |
 
 ### DCAT-AP (Data Catalog Vocabulary – Application Profile)
 
