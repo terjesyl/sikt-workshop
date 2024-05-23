@@ -1,6 +1,8 @@
 # Workshop SIKT - Datasettbeskrivelser
 
-## Resource Description Framework (RDF) og lenkede data
+## Intro
+
+### Resource Description Framework (RDF) og lenkede data
 
 - "Alt" består av navn (URI-er) eller verdier ("Literals")
 - En URI ("Uniform Resource Identifier") er et navn som peker til en ressurs.
@@ -18,7 +20,7 @@ Med disse byggeklossene kan vi lage rettede grafer som består av ting og relasj
 
 ![Rettet graf](./imgs/graph_example1.drawio.svg)
 
-## Modellere Ada Lovelace
+### Modellere Ada Lovelace
 
 AdaLovelace type Person
 
@@ -32,7 +34,23 @@ AdaLovelace interesse Programmering
 
 ![Ada Lovelace](./imgs/ada_lovelace_graph.drawio.svg)
 
-## Turtle - en RDF-syntaks
+### Hvorfor RDF?
+
+- Maskinlesbart.
+- Samhandlingsevne/interoperabilitet:
+  - Har et globalt navnerom: betyr at vi kan snakke om de samme tingene på tvers av systemer og domener.
+  - Ulike datasett kan enklere knyttes sammen (lenkede data).
+  - Tilrettelegger for gjenbruk av vokabularer og egenskaper på tvers av systemer og løsninger.
+- Semantikken følger med dataen når man bruker definerte egenskaper; dataen blir selvforklarende.
+- Håndterer kompleks data som er vanskelig å definere i tabellform.
+- Distribuerte spørringer.
+- En stor verktøykasse er tilgjengelig (for modellering, validering, spørringer, distribuert data, med mer).
+
+Viktig antakelse: åpent verdenssyn (Open world assumption).
+
+Se hva W3C selv [skriver om bruksområder for RDF](https://www.w3.org/TR/rdf11-primer/#section-use-cases).
+
+### Turtle - en RDF-syntaks
 
 - En URI skrives med "<" og ">", slik: `<https://example.org>`
 - Tekstverdier skrives med anførselstegn: `"en tekst"`
@@ -49,7 +67,7 @@ Vi bruker ressurser som allerede er definert av andre, f.eks. RDF, Schema.org el
 <https://example.org/people/adaLovelace>   <https://schema.org/knowsAbout>                     "Programmering"@nb .
 ```
 
-### Prefikser/navnerom
+#### Prefikser/navnerom
 
 Med prefikser (forkortelser) kan vi erstatte URL-ene med prefiksen vi har definert.
 F.eks. kan vi skrive `foaf` i stedet for `<http://xmlns.com/foaf/0.1/>`.
@@ -76,7 +94,7 @@ Kjente og ofte brukte navnerom (+ noen vi trenger til datasettbeskrivelser):
 @prefix people: <https://example.org/people/> .
 ```
 
-### ...forenklet beskrivelse
+#### ...forenklet beskrivelse
 
 Med dette kan vi forenkle beskrivelsen av Ada Lovelace
 
@@ -98,7 +116,7 @@ people:adaLovelace schema:knowsAbout      "Programmering"@nb .
 
 Fortsatt på formen subjekt, predikat, objekt
 
-### ... enda mer forenklet
+#### ... enda mer forenklet
 
 Når vi gjentar subjektet kan det skrives om til
 
@@ -112,7 +130,7 @@ people:adaLovelace    rdf:type               foaf:Person ;
 
 Hvert utsagn som gjenbruker subjektet avsluttes med `;`. Vi avslutter med `.` som vanlig.
 
-### Med flere verdier på samme predikat
+#### Med flere verdier på samme predikat
 
 ```turtle
 people:adaLovelace  rdf:type  foaf:Person ;
@@ -132,7 +150,23 @@ people:adaLovelace   rdf:type        foaf:Person ;
 
 Hvert utsagn som gjenbruk subjekt+predikat avsluttes med `,`.
 
-## DCAT-AP (Data Catalog Vocabulary – Application Profile)
+#### RDF-serialiseringer/syntakser
+
+Det fins flere ulike måter å uttrykke RDF-grafer. I tabellen under har vi listet noen av de vanligste syntaksene for å serialisere RDF. Du trenger ikke kunne alle, bare å kjenne til at de fins.
+
+RDF-verktøy og biblioteker kan lese til og skrive fra en eller flere av disse syntaksene. De facto standard er RDF/XML, men Turtle støttes også av de aller fleste verktøy.
+
+| Navn      | Mediatype               | File extension |
+| --------- | ----------------------- | -------------- |
+| Turtle    | `text/turtle`           | `.ttl`         |
+| RDF/XML   | `application/rdf+xml`   | `.rdf`         |
+| JSON-LD   | `application/ld+json`   | `.jsonld`      |
+| N-Triples | `application/n-triples` | `.nt`          |
+| N-Quads   | `application/n-quads`   | `.nq`          |
+| TriG      | `application/trig`      | `.trig`        |
+| Notation3 | `text/n3;charset=utf-8` | `.n3`          |
+
+### DCAT-AP (Data Catalog Vocabulary – Application Profile)
 
 Spesifikasjon for hvordan beskrive datasett og API-er.
 
@@ -142,9 +176,89 @@ Gjeldende versjon: https://data.norge.no/specification/dcat-ap-no
 - Viser hvilke etablerte vokabularer og kodelister som skal brukes.
 - Angir multiplisitet for feltene (0..1, 1..1, 1..n)
 
-## OPPGAVER - For de ferske
+### Datasettkatalogen: dcat:Catalog
 
-### 1.1 Fyll ut obligatoriske felter for en datasettbeskrivelse
+En katalog er en samling av datasett. I de fleste av oppgavene under har vi for enkelhetsskyld utelatt `dcat:Catalog`, men for å lage en fullstendig beskrivelse som kan høstes til https://data.norge.no må du knytte alle datasettene til en katalog:
+
+```turtle
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+
+<https://data.digdir.no/catalog/workshop-katalog> a dcat:Catalog ;
+    # ...
+    dcat:dataset <https://data.digdir.no/dataset/workshop-datasett1> ,
+                 <https://data.digdir.no/dataset/workshop-datasett2> ;
+    .
+
+<https://data.digdir.no/dataset/workshop-datasett1> a dcat:Dataset ;
+    # ...
+    .
+
+<https://data.digdir.no/dataset/workshop-datasett2> a dcat:Dataset ;
+    # ...
+    .
+```
+
+## OPPGAVER
+
+### OPPGAVER - For de ferske
+
+Det er ikke meningen du skal bruke veldig lang tid på hver av disse oppgavene. Om du står fast eller oppgaven er uklar, spør en av oss, eller ta en kikk i løsningsforslaget.
+
+#### 1.0 Hva sier denne beskrivelsen?
+
+```txt
+# // oppgaver/1_0.ttl
+
+
+# - 1. Hva er bokmålstittelen til datasettet?
+# - 2. Hva er den engelske tittelen til datasettet?
+# - 3. Hva er organisasjonsnummeret til utgiveren?
+# - 4. Hva er den fullstendige URI-en til datatjenesten ("DataService")? Skal ikke være på prefiks-form.
+# - 5. Hva er URL-en til API-ets endepunkt?
+# - 6. Hva er eposten man kan kontakte for spørsmål knyttet til datasettet?
+
+
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+@prefix digdirdataservices: <https://data.digdir.no/dataservice/> .
+
+<https://data.digdir.no/catalog/workshop-katalog> a dcat:Catalog ;
+    dct:identifier "https://data.digdir.no/catalog/workshop-katalog" ;
+    dct:publisher <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/991825827> ;
+    dct:title "Eksempelkatalog til workshop"@nb ;
+    dct:description "Katalog for å vise eksempler til workshop"@nb ;
+    dcat:dataset <https://data.digdir.no/dataset/workshop-datasett1> ;
+    foaf:homepage <https://digdir.no> ;
+    .
+
+<https://data.digdir.no/dataset/workshop-datasett1> a dcat:Dataset ;
+    dct:identifier "https://data.digdir.no/dataset/workshop-datasett1" ;
+    dct:title "Kult datasett!"@nb, "Cool dataset!"@en ;
+    dct:description "En eksempeldatasett for workshop."@nb ;
+    dct:publisher <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/991825827> ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:fellesdatakatalog@digdir.no> ;
+            vcard:hasOrganizationName "DIGDIR Felles datakatalog"@nb ] ;
+    dcat:landingPage <https://www.digdir.no/> ;
+    .
+
+digdirdataservices:workshop-api a dcat:DataService ;
+    dct:identifier "https://data.digdir.no/apis/workshop-api" ;
+    dct:title "Workshop API"@nb ;
+    dct:description "Dette er en eksempel-API til workshop"@nb ;
+    dct:publisher <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/991825827> ;
+    dcat:endpointURL <https://data.digdir.no/apis/workshop-api/> ;
+    dcat:servesDataset <https://data.digdir.no/dataset/workshop-datasett1> ;
+    .
+```
+
+#### 1.1 Fyll ut obligatoriske felter for en datasettbeskrivelse
 
 ```txt
 # // oppgaver/1_1.ttl
@@ -177,29 +291,33 @@ utdanning:forvaltningsdatabasen
 
 ```
 
-### 1.2 Valider turtle-syntaksen
+#### 1.2 Valider turtle-syntaksen
 
 Sjekk at Turtle-syntaksen er korrekt ved å kopiere den utfylte beskrivelsen din fra oppgave 1.1, lime den inn i tekstfeltet på https://felixlohmeier.github.io/turtle-web-editor/ og trykk på "Validate!". Du skal få tilbakemelding om at syntaksen er korrekt.
 
 Hvis du får en feilmelding får du beskjed om linjenummer validatoren feiler på. Prøv å rette feilen og valider på nytt.
 
-### 1.3. Legg til API-beskrivelse
+#### 1.3. Legg til API-beskrivelse
 
-Under er en ufullstendig beskrivelse av et datasett som tilbys over et API. Erstatt URI-ene og tekstene i store bokstaver med passende innhold.
+```txt
+# // oppgaver/1_3.ttl
 
-- For dcat:endpointURL kan du finne et reelt endepunkt eller dikte opp et eget.
-- For dct:title kan du finne på et tittel for API-et.
-- For dcat:servesDataset må du peke til datasett-ressursen i beskrivelsen.
 
-Når du skal peke fra en ressurs til en annen oppgir du bare URI-en til ressursen i objekt-posisjon. For eksempel angir du datatjenesten/API-et til et datasett med trippelet:
+# Under er en ufullstendig beskrivelse av et datasett som tilbys over et API. Erstatt URI-ene og tekstene i store bokstaver med passende innhold.
 
-- `utdanning:forvaltningsdatabasen-api dcat:servesDataset utdanning:forvaltningsdatabasen .`.
-- Husk at dette er akkurat det samme som å skrive
-  - `<https://data.utdanning.no/forvaltningsdatabasen-api> <http://www.w3.org/ns/dcat#servesDataset> <https://data.utdanning.no/forvaltningsdatabasen> .`.
+# - For dcat:endpointURL kan du finne et reelt endepunkt eller dikte opp et eget.
+# - For dct:title kan du finne på et tittel for API-et.
+# - For dcat:servesDataset må du peke til datasett-ressursen i beskrivelsen.
 
-Valider Turtle-syntaksen underveis.
+# Når du skal peke fra en ressurs til en annen oppgir du bare URI-en til ressursen i objekt-posisjon. For eksempel angir du datatjenesten/API-et til et datasett med trippelet:
 
-```turtle
+# - `utdanning:forvaltningsdatabasen-api dcat:servesDataset utdanning:forvaltningsdatabasen .`.
+# - Husk at dette er akkurat det samme som å skrive
+#   - `<https://data.utdanning.no/forvaltningsdatabasen-api> <http://www.w3.org/ns/dcat#servesDataset> <https://data.utdanning.no/forvaltningsdatabasen> .`.
+
+# Valider Turtle-syntaksen underveis.
+
+
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dct:    <http://purl.org/dc/terms/> .
 @prefix dcat:   <http://www.w3.org/ns/dcat#> .
@@ -227,22 +345,23 @@ utdanning:forvaltningsdatabasen-api
 
 ```
 
-### 1.4 Valider mot DCAT-AP-NO-validatoren
+#### 1.4 Valider mot DCAT-AP-NO-validatoren
 
 1. Gå til validatoren til data.norge.no (https://data.norge.no/validator)
 2. Kopier og lim inn den utfylte beskrivelsen din fra oppgave 1.3 i feltet "Valider tekst"
-3. Under "Regelsett" velger du "Regelsett lenke" og limer inn lenken https://raw.githubusercontent.com/Informasjonsforvaltning/dcat-ap-no/develop/shacl/DCAT-AP-NO-shacl_shapes_2.00.ttl . Da bruker du siste versjon av valideringsreglene.
-4. Trykk "Valider" nederst på siden, og se hvilke meldinger du får.
+3. Trykk "Valider" nederst på siden, og se hvilke meldinger du får.
 
 Merk: Hvis du har fylt ut alle de obligatoriske feltene for hver ressurs i beskrivelsen skal det ikke komme noen feilmeldinger. Men det kan være at du får noen feilmeldinger fordi de eksterne ressursene beskrivelsen peker til (som f.eks. en kodeliste) har noen mangler. Om du er i tvil hva feilen kommer av, spør en av oss.
 
-### 1.5 Finn feilen
+#### 1.5 Finn feilen
 
-I denne beskrivelsen skjuler det seg fire syntaksfeil. Bruk turtle-validatoren for å finne og rette dem: https://felixlohmeier.github.io/turtle-web-editor/
+```txt
+# // oppgaver/1_5.ttl
 
-Validatoren skal til slutt gi beskjed om at syntaksen er korrekt.
 
-```turtle
+# I denne beskrivelsen skjuler det seg fire syntaksfeil. Bruk turtle-validatoren for å finne og rette dem: https://felixlohmeier.github.io/turtle-web-editor/
+# Validatoren skal til slutt gi beskjed om at syntaksen er korrekt.
+
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dct:    <http://purl.org/dc/terms/> .
 @prefix foaf:   <http://xmlns.com/foaf/0.1/> .
@@ -287,38 +406,41 @@ public_data:ai_projects_norwegian_state_distribution a dcat:Distribution ;
 
 ```
 
-## OPPGAVER - For de viderekomne
+### OPPGAVER - For de viderekomne
 
-### 2.1
+#### 2.1
 
-Du sitter på et imaginært datasett med oversikt over all verdens programmeringsspråk, historiske og nåværende. Datasettet er tilgjengelig som en statisk JSON-fil. Du vil nå formidle til verden at du sitter på denne dataen.
+```txt
+# // oppgaver/2_1.ttl
 
-Fyll ut de obligatoriske feltene for datasettet:
 
-- dct:title - Tekst (bokmål og nynorsk)
-- dct:description - Tekst
-- dct:publisher - URI til organisasjon
-- dcat:theme - URI til kode.
+# Du sitter på et imaginært datasett med oversikt over all verdens programmeringsspråk, historiske og nåværende. Datasettet er tilgjengelig som en statisk JSON-fil. Du vil nå formidle til verden at du sitter på denne dataen.
 
-For `dct:publisher`, se i oppgavene over hvordan det er gjort der.
+# Fyll ut de obligatoriske feltene for datasettet:
 
-For `dcat:theme` kan du bruke koden `TECH` fra et kjent EU-vokabular: `<http://publications.europa.eu/resource/authority/data-theme/TECH>`.
+# - dct:title - Tekst (bokmål og nynorsk)
+# - dct:description - Tekst
+# - dct:publisher - URI til organisasjon
+# - dcat:theme - URI til kode.
 
-Og legg til disse egenskapene for distribusjonen:
+# For `dct:publisher`, se i oppgavene over hvordan det er gjort der.
 
-- dcat:accessURL - URL
-- dct: description - Tekst
-- dct:format - URI til kode
-- dct:license - URI til kode
-- adms:status - URI til kode
+# For `dcat:theme` kan du bruke koden `TECH` fra et kjent EU-vokabular: `<http://publications.europa.eu/resource/authority/data-theme/TECH>`.
 
-For `dct:format` kan du f.eks. bruke koden `JSON`: `<http://publications.europa.eu/resource/authority/file-type/JSON>`
+# Og legg til disse egenskapene for distribusjonen:
 
-For `dct:license` kan du f.eks. bruke koden `CC_BY_4_0`: `<http://publications.europa.eu/resource/authority/licence/CC_BY_4_0>`.
+# - dcat:accessURL - URL
+# - dct: description - Tekst
+# - dct:format - URI til kode
+# - dct:license - URI til kode
+# - adms:status - URI til kode
 
-For`adms:status`kan du f.eks. bruke koden`UnderDevelopment`: `<http://purl.org/adms/status/UnderDevelopment>`.
+# For `dct:format` kan du f.eks. bruke koden `JSON`: `<http://publications.europa.eu/resource/authority/file-type/JSON>`
 
-```turtle
+# For `dct:license` kan du f.eks. bruke koden `CC_BY_4_0`: `<http://publications.europa.eu/resource/authority/licence/CC_BY_4_0>`.
+
+# For`adms:status`kan du f.eks. bruke koden`UnderDevelopment`: `<http://purl.org/adms/status/UnderDevelopment>`.
+
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dct:    <http://purl.org/dc/terms/> .
 @prefix dcat:   <http://www.w3.org/ns/dcat#> .
@@ -337,22 +459,26 @@ programming:languages-distribution
     rdf:type dcat:Distribution ;
     # FYLL UT ...
     .
+
 ```
 
-## Oppgaver - For de modige
+### Oppgaver - For de modige
 
-### 3.1
+#### 3.1
 
-Dere sitter på et datasett som inneholder karakterer knyttet til studenter fra alle eksamener tatt ved høgskoler og universiteter i Norge. Denne dataen er ikke åpen, men dere vil allikevel synliggjøre at dataen fins. I tillegg er dataen tilgjengelig for autoriserte parter gjennom et API.
+```txt
+# // oppgaver/3_1.ttl
 
-Lag en beskrivelse for dette datasettet.
 
-- Husk å legge til de prefiksene du trenger, og definer dine egne om ønskelig.
-- Bruk passende koder fra kodelistene nevnt i oppgave 2.1, som vokabularene under http://publications.europa.eu/resource/authority.
+# Dere sitter på et datasett som inneholder karakterer knyttet til studenter fra alle eksamener tatt ved høgskoler og universiteter i Norge. Denne dataen er ikke åpen, men dere vil allikevel synliggjøre at dataen fins. I tillegg er dataen tilgjengelig for autoriserte parter gjennom et API.
 
-```turtle
+# Lag en beskrivelse for dette datasettet.
+
+# - Husk å legge til de prefiksene du trenger, og definer dine egne om ønskelig.
+# - Bruk passende koder fra kodelistene nevnt i oppgave 2.1, som vokabularene under http://publications.europa.eu/resource/authority.
+
+
 # FYLL UT
-
 ```
 
 ## Validering
@@ -365,8 +491,20 @@ For å validere Turtle-syntaks: https://felixlohmeier.github.io/turtle-web-edito
 
 For å validere datasettbeskrivelsen mot DCAT-AP-NO: https://data.norge.no/validator
 
-Husk å legge til lenken https://raw.githubusercontent.com/Informasjonsforvaltning/dcat-ap-no/develop/shacl/DCAT-AP-NO-shacl_shapes_2.00.ttl under "Regelsett" -> "Regelsett lenke" for å validere mot siste versjon av reglene.
-
 ## Høsting
 
 Informasjon om hvordan registrere kilder som kan høstes til data.norge.no: https://data.norge.no/publishing/about-harvesting
+
+## Flere ressurser
+
+TODO
+
+### Artikler
+
+### Visualisering
+
+### Verktøy
+
+- Protege
+
+### Spec'er (teknisk)

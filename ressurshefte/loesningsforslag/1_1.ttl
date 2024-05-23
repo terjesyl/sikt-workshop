@@ -1,0 +1,19 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix dcat:   <http://www.w3.org/ns/dcat#> .
+
+# Vår egendefinerte prefix:
+@prefix utdanning: <https://data.utdanning.no/> .
+
+utdanning:forvaltningsdatabasen
+    rdf:type        dcat:Dataset ;
+
+    dct:title       "Forvaltningsdatabasen"@nb, "Forvaltningsdatabasen"@nn ;
+    dct:description "Forvaltningsdatabasen er en kartlegging av organiseringen til staten i departement og ytre etater i Norge etter 1947.
+                    Den gir oversikt over den hierarkiske strukturen og hvordan denne strukturen har endret seg over tid."@nb,
+                    "Forvaltningsdatabasen er ei kartlegging av organiseringa til staten i departement og ytre etatar i Noreg etter 1947.
+                    Den gir oversikt over den hierarkiske strukturen og korleis denne strukturen har endra seg over tid."@nn ;
+    dct:publisher   <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/919477822> ;
+
+    dcat:theme      <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
+    dct:identifier  "https://data.utdanning.no/forvaltningsdatabasen" .

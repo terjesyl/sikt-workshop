@@ -1,0 +1,46 @@
+
+# Du sitter på et imaginært datasett med oversikt over all verdens programmeringsspråk, historiske og nåværende. Datasettet er tilgjengelig som en statisk JSON-fil. Du vil nå formidle til verden at du sitter på denne dataen.
+
+# Fyll ut de obligatoriske feltene for datasettet:
+
+# - dct:title - Tekst (bokmål og nynorsk)
+# - dct:description - Tekst
+# - dct:publisher - URI til organisasjon
+# - dcat:theme - URI til kode.
+
+# For `dct:publisher`, se i oppgavene over hvordan det er gjort der.
+
+# For `dcat:theme` kan du bruke koden `TECH` fra et kjent EU-vokabular: `<http://publications.europa.eu/resource/authority/data-theme/TECH>`.
+
+# Og legg til disse egenskapene for distribusjonen:
+
+# - dcat:accessURL - URL
+# - dct: description - Tekst
+# - dct:format - URI til kode
+# - dct:license - URI til kode
+# - adms:status - URI til kode
+
+# For `dct:format` kan du f.eks. bruke koden `JSON`: `<http://publications.europa.eu/resource/authority/file-type/JSON>`
+
+# For `dct:license` kan du f.eks. bruke koden `CC_BY_4_0`: `<http://publications.europa.eu/resource/authority/licence/CC_BY_4_0>`.
+
+# For`adms:status`kan du f.eks. bruke koden`UnderDevelopment`: `<http://purl.org/adms/status/UnderDevelopment>`.
+
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix dcat:   <http://www.w3.org/ns/dcat#> .
+@prefix adms:   <http://www.w3.org/ns/adms#> .
+
+@prefix programming: <https://example.org/catalogs/programming/> .
+
+programming:languages
+    rdf:type           dcat:Dataset ;
+    dct:identifier     "https://example.org/catalogs/programming/languages" ;
+    dcat:distribution  programming:languages-distribution ;
+    # FYLL UT ...
+    .
+
+programming:languages-distribution
+    rdf:type dcat:Distribution ;
+    # FYLL UT ...
+    .

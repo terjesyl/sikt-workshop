@@ -1,0 +1,40 @@
+
+# Under er en ufullstendig beskrivelse av et datasett som tilbys over et API. Erstatt URI-ene og tekstene i store bokstaver med passende innhold.
+
+# - For dcat:endpointURL kan du finne et reelt endepunkt eller dikte opp et eget.
+# - For dct:title kan du finne på et tittel for API-et.
+# - For dcat:servesDataset må du peke til datasett-ressursen i beskrivelsen.
+
+# Når du skal peke fra en ressurs til en annen oppgir du bare URI-en til ressursen i objekt-posisjon. For eksempel angir du datatjenesten/API-et til et datasett med trippelet:
+
+# - `utdanning:forvaltningsdatabasen-api dcat:servesDataset utdanning:forvaltningsdatabasen .`.
+# - Husk at dette er akkurat det samme som å skrive
+#   - `<https://data.utdanning.no/forvaltningsdatabasen-api> <http://www.w3.org/ns/dcat#servesDataset> <https://data.utdanning.no/forvaltningsdatabasen> .`.
+
+# Valider Turtle-syntaksen underveis.
+
+
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix dcat:   <http://www.w3.org/ns/dcat#> .
+
+@prefix utdanning: <https://data.utdanning.no/> .
+
+utdanning:forvaltningsdatabasen
+    rdf:type        dcat:Dataset ;
+
+    dct:title       "Forvaltningsdatabasen"@nb, "Forvaltningsdatabasen"@nn ;
+    dct:description "Kartlegging av organiseringen til staten og ytre etater etter 1947"@nb ;
+    dct:publisher   <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/919477822> ;
+
+    dcat:theme      <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
+    dct:identifier  "https://data.utdanning.no/forvaltningsdatabasen";
+    .
+
+utdanning:forvaltningsdatabasen-api
+    rdf:type            dcat:DataService ;
+    dct:identifier      "https://data.utdanning.no/forvaltningsdatabasen-api" ;
+    dct:title           "FYLL-INN"@nb, "FYLL-INN"@nn ;
+    dcat:endpointURL    <URL-TIL-APIETS-ENDEPUNKT> ;
+    dcat:servesDataset  <URI-TIL-DATASETT-RESSURSEN-OVER> ;
+    .
