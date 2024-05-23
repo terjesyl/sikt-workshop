@@ -1,6 +1,8 @@
 # Workshop SIKT - Datasettbeskrivelser
 
-## Resource Description Framework (RDF) og lenkede data
+## Intro
+
+### Resource Description Framework (RDF) og lenkede data
 
 - "Alt" består av navn (URI-er) eller verdier ("Literals")
 - En URI ("Uniform Resource Identifier") er et navn som peker til en ressurs.
@@ -18,7 +20,7 @@ Med disse byggeklossene kan vi lage rettede grafer som består av ting og relasj
 
 ![Rettet graf](./imgs/graph_example1.drawio.svg)
 
-## Modellere Ada Lovelace
+### Modellere Ada Lovelace
 
 AdaLovelace type Person
 
@@ -32,7 +34,11 @@ AdaLovelace interesse Programmering
 
 ![Ada Lovelace](./imgs/ada_lovelace_graph.drawio.svg)
 
-## Turtle - en RDF-syntaks
+### Hvorfor RDF?
+
+TODO
+
+### Turtle - en RDF-syntaks
 
 - En URI skrives med "<" og ">", slik: `<https://example.org>`
 - Tekstverdier skrives med anførselstegn: `"en tekst"`
@@ -49,7 +55,11 @@ Vi bruker ressurser som allerede er definert av andre, f.eks. RDF, Schema.org el
 <https://example.org/people/adaLovelace>   <https://schema.org/knowsAbout>                     "Programmering"@nb .
 ```
 
-### Prefikser/navnerom
+#### Andre RDF-serialiseringer/syntakser
+
+TODO
+
+#### Prefikser/navnerom
 
 Med prefikser (forkortelser) kan vi erstatte URL-ene med prefiksen vi har definert.
 F.eks. kan vi skrive `foaf` i stedet for `<http://xmlns.com/foaf/0.1/>`.
@@ -76,7 +86,7 @@ Kjente og ofte brukte navnerom (+ noen vi trenger til datasettbeskrivelser):
 @prefix people: <https://example.org/people/> .
 ```
 
-### ...forenklet beskrivelse
+#### ...forenklet beskrivelse
 
 Med dette kan vi forenkle beskrivelsen av Ada Lovelace
 
@@ -98,7 +108,7 @@ people:adaLovelace schema:knowsAbout      "Programmering"@nb .
 
 Fortsatt på formen subjekt, predikat, objekt
 
-### ... enda mer forenklet
+#### ... enda mer forenklet
 
 Når vi gjentar subjektet kan det skrives om til
 
@@ -112,7 +122,7 @@ people:adaLovelace    rdf:type               foaf:Person ;
 
 Hvert utsagn som gjenbruker subjektet avsluttes med `;`. Vi avslutter med `.` som vanlig.
 
-### Med flere verdier på samme predikat
+#### Med flere verdier på samme predikat
 
 ```turtle
 people:adaLovelace  rdf:type  foaf:Person ;
@@ -132,7 +142,7 @@ people:adaLovelace   rdf:type        foaf:Person ;
 
 Hvert utsagn som gjenbruk subjekt+predikat avsluttes med `,`.
 
-## DCAT-AP (Data Catalog Vocabulary – Application Profile)
+### DCAT-AP (Data Catalog Vocabulary – Application Profile)
 
 Spesifikasjon for hvordan beskrive datasett og API-er.
 
@@ -142,18 +152,24 @@ Gjeldende versjon: https://data.norge.no/specification/dcat-ap-no
 - Viser hvilke etablerte vokabularer og kodelister som skal brukes.
 - Angir multiplisitet for feltene (0..1, 1..1, 1..n)
 
-## OPPGAVER - For de ferske
+### Datasettkatalogen: dcat:Catalog
+
+TODO
+
+## OPPGAVER
+
+### OPPGAVER - For de ferske
 
 Det er ikke meningen du skal bruke veldig lang tid på hver av disse oppgavene. Om du står fast eller oppgaven er uklar, spør en av oss, eller ta en kikk i løsningsforslaget.
 
-### 1.0 Hva sier denne beskrivelsen?
+#### 1.0 Hva sier denne beskrivelsen?
 
 ```txt
 # // oppgaver/1_0.ttl
 
 ```
 
-### 1.1 Fyll ut obligatoriske felter for en datasettbeskrivelse
+#### 1.1 Fyll ut obligatoriske felter for en datasettbeskrivelse
 
 ```txt
 # // oppgaver/1_1.ttl
@@ -186,13 +202,13 @@ utdanning:forvaltningsdatabasen
 
 ```
 
-### 1.2 Valider turtle-syntaksen
+#### 1.2 Valider turtle-syntaksen
 
 Sjekk at Turtle-syntaksen er korrekt ved å kopiere den utfylte beskrivelsen din fra oppgave 1.1, lime den inn i tekstfeltet på https://felixlohmeier.github.io/turtle-web-editor/ og trykk på "Validate!". Du skal få tilbakemelding om at syntaksen er korrekt.
 
 Hvis du får en feilmelding får du beskjed om linjenummer validatoren feiler på. Prøv å rette feilen og valider på nytt.
 
-### 1.3. Legg til API-beskrivelse
+#### 1.3. Legg til API-beskrivelse
 
 ```txt
 # // oppgaver/1_3.ttl
@@ -240,7 +256,7 @@ utdanning:forvaltningsdatabasen-api
 
 ```
 
-### 1.4 Valider mot DCAT-AP-NO-validatoren
+#### 1.4 Valider mot DCAT-AP-NO-validatoren
 
 1. Gå til validatoren til data.norge.no (https://data.norge.no/validator)
 2. Kopier og lim inn den utfylte beskrivelsen din fra oppgave 1.3 i feltet "Valider tekst"
@@ -248,7 +264,7 @@ utdanning:forvaltningsdatabasen-api
 
 Merk: Hvis du har fylt ut alle de obligatoriske feltene for hver ressurs i beskrivelsen skal det ikke komme noen feilmeldinger. Men det kan være at du får noen feilmeldinger fordi de eksterne ressursene beskrivelsen peker til (som f.eks. en kodeliste) har noen mangler. Om du er i tvil hva feilen kommer av, spør en av oss.
 
-### 1.5 Finn feilen
+#### 1.5 Finn feilen
 
 ```txt
 # // oppgaver/1_5.ttl
@@ -301,9 +317,9 @@ public_data:ai_projects_norwegian_state_distribution a dcat:Distribution ;
 
 ```
 
-## OPPGAVER - For de viderekomne
+### OPPGAVER - For de viderekomne
 
-### 2.1
+#### 2.1
 
 ```txt
 # // oppgaver/2_1.ttl
@@ -357,9 +373,9 @@ programming:languages-distribution
 
 ```
 
-## Oppgaver - For de modige
+### Oppgaver - For de modige
 
-### 3.1
+#### 3.1
 
 ```txt
 # // oppgaver/3_1.ttl
