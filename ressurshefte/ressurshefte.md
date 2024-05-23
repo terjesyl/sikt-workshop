@@ -178,7 +178,25 @@ Gjeldende versjon: https://data.norge.no/specification/dcat-ap-no
 
 ### Datasettkatalogen: dcat:Catalog
 
-TODO
+En katalog er en samling av datasett. I de fleste av oppgavene under har vi for enkelhetsskyld utelatt `dcat:Catalog`, men for å lage en fullstendig beskrivelse som kan høstes til https://data.norge.no må du knytte alle datasettene til en katalog:
+
+```turtle
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+
+<https://data.digdir.no/catalog/workshop-katalog> a dcat:Catalog ;
+    # ...
+    dcat:dataset <https://data.digdir.no/dataset/workshop-datasett1> ,
+                 <https://data.digdir.no/dataset/workshop-datasett2> ;
+    .
+
+<https://data.digdir.no/dataset/workshop-datasett1> a dcat:Dataset ;
+    # ...
+    .
+
+<https://data.digdir.no/dataset/workshop-datasett2> a dcat:Dataset ;
+    # ...
+    .
+```
 
 ## OPPGAVER
 
