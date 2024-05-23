@@ -36,7 +36,19 @@ AdaLovelace interesse Programmering
 
 ### Hvorfor RDF?
 
-TODO
+- Maskinlesbart.
+- Samhandlingsevne/interoperabilitet:
+  - Har et globalt navnerom: betyr at vi kan snakke om de samme tingene på tvers av systemer og domener.
+  - Ulike datasett kan enklere knyttes sammen (lenkede data).
+  - Tilrettelegger for gjenbruk av vokabularer og egenskaper på tvers av systemer og løsninger.
+- Semantikken følger med dataen når man bruker definerte egenskaper; dataen blir selvforklarende.
+- Håndterer kompleks data som er vanskelig å definere i tabellform.
+- Distribuerte spørringer.
+- En stor verktøykasse er tilgjengelig (for modellering, validering, spørringer, distribuert data, med mer).
+
+Viktig antakelse: åpent verdenssyn (Open world assumption).
+
+Se hva W3C selv [skriver om bruksområder for RDF](https://www.w3.org/TR/rdf11-primer/#section-use-cases).
 
 ### Turtle - en RDF-syntaks
 
