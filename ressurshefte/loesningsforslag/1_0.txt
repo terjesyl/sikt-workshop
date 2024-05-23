@@ -1,0 +1,6 @@
+1. "Kult datasett!"
+2. "Cool dataset!"
+3. 991825827
+4. https://data.digdir.no/dataservice/workshop-api
+5. https://data.digdir.no/apis/workshop-api/
+6. fellesdatakatalog@digdir.no

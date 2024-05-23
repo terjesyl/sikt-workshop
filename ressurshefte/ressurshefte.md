@@ -209,6 +209,53 @@ Det er ikke meningen du skal bruke veldig lang tid på hver av disse oppgavene. 
 ```txt
 # // oppgaver/1_0.ttl
 
+
+# - 1. Hva er bokmålstittelen til datasettet?
+# - 2. Hva er den engelske tittelen til datasettet?
+# - 3. Hva er organisasjonsnummeret til utgiveren?
+# - 4. Hva er den fullstendige URI-en til datatjenesten ("DataService")? Skal ikke være på prefiks-form.
+# - 5. Hva er URL-en til API-ets endepunkt?
+# - 6. Hva er eposten man kan kontakte for spørsmål knyttet til datasettet?
+
+
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+@prefix digdirdataservices: <https://data.digdir.no/dataservice/> .
+
+<https://data.digdir.no/catalog/workshop-katalog> a dcat:Catalog ;
+    dct:identifier "https://data.digdir.no/catalog/workshop-katalog" ;
+    dct:publisher <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/991825827> ;
+    dct:title "Eksempelkatalog til workshop"@nb ;
+    dct:description "Katalog for å vise eksempler til workshop"@nb ;
+    dcat:dataset <https://data.digdir.no/dataset/workshop-datasett1> ;
+    foaf:homepage <https://digdir.no> ;
+    .
+
+<https://data.digdir.no/dataset/workshop-datasett1> a dcat:Dataset ;
+    dct:identifier "https://data.digdir.no/dataset/workshop-datasett1" ;
+    dct:title "Kult datasett!"@nb, "Cool dataset!"@en ;
+    dct:description "En eksempeldatasett for workshop."@nb ;
+    dct:publisher <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/991825827> ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:fellesdatakatalog@digdir.no> ;
+            vcard:hasOrganizationName "DIGDIR Felles datakatalog"@nb ] ;
+    dcat:landingPage <https://www.digdir.no/> ;
+    .
+
+digdirdataservices:workshop-api a dcat:DataService ;
+    dct:identifier "https://data.digdir.no/apis/workshop-api" ;
+    dct:title "Workshop API"@nb ;
+    dct:description "Dette er en eksempel-API til workshop"@nb ;
+    dct:publisher <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/991825827> ;
+    dcat:endpointURL <https://data.digdir.no/apis/workshop-api/> ;
+    dcat:servesDataset <https://data.digdir.no/dataset/workshop-datasett1> ;
+    .
 ```
 
 #### 1.1 Fyll ut obligatoriske felter for en datasettbeskrivelse
