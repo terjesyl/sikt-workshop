@@ -1,0 +1,45 @@
+
+# I denne beskrivelsen skjuler det seg fire syntaksfeil. Bruk turtle-validatoren for å finne og rette dem: https://felixlohmeier.github.io/turtle-web-editor/
+# Validatoren skal til slutt gi beskjed om at syntaksen er korrekt.
+
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix foaf:   <http://xmlns.com/foaf/0.1/> .
+@prefix dcat:   <http://www.w3.org/ns/dcat#> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix provno: <https://data.norge.no/vocabulary/provno#> .
+@prefix vcard:  <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix public_data: <https://data.norge.no/public_datasets/> .
+@prefix digdir: <https://digdir.no/> .   # Mangler avsluttende punktum
+
+public_data:ai_projects_norwegian_state_dataset a dcat:Dataset ;
+    dct:identifier "https://data.norge.no/public_datasets/ai_projects_norwegian_state_dataset" ;
+    dct:title "Kunstig intelligens - oversikt over prosjekter i offentlig sektor"@nb ;
+    dct:description "En oversikt over kunstig intelligens-prosjekter i offentlig sektor. Oversikten er ikke komplett."@nb ;
+    dcat:theme <http://eurovoc.europa.eu/3030> , <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;  # den første URI-en mangler avsluttende vinkelparentes >
+    dct:publisher <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/991825827> ;
+    prov:wasGeneratedBy provno:collectingFromThirdparty ;
+    dcat:distribution public_data:ai_projects_norwegian_state_distribution ;
+    dct:spatial <http://publications.europa.eu/resource/authority/country/NOR> ;
+    dct:keyword "kunstig intelligens"@nb, "offentlige prosjekter"@nb ;  # mangler komma mellom nøkkelordene
+    dcat:contactPoint digdir:contactInfo ;
+    dct:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
+    foaf:page <https://data.norge.no/kunstig-intelligens> ;
+    .
+
+digdir:contactInfo a vcard:Organization ;
+    vcard:email "kunstigintelligens@digdir.no" .
+
+public_data:ai_projects_norwegian_state_distribution a dcat:Distribution ;
+    dcat:accessURL <https://github.com/Informasjonsforvaltning/ai-project-service/blob/main/ai_projects_norwegian_state%20-%20Oversatt_v1.csv> ;
+    dct:description "CSV-fil med oversikt over kunstig intelligens-prosjekter i offentlig sektor"@nb ;
+    dct:format <https://www.iana.org/assignments/media-types/text/csv> ;
+    dcat:mediaType <https://www.iana.org/assignments/media-types/text/csv> ;
+    dct:license <http://publications.europa.eu/resource/authority/licence/APACHE_2_0> ; # mangler avsluttende semikolon
+    foaf:page <https://github.com/Informasjonsforvaltning/ai-project-service> ;
+    dcat:downloadURL <https://raw.githubusercontent.com/Informasjonsforvaltning/ai-project-service/main/ai_projects_norwegian_state%20-%20Oversatt_v1.csv> ;
+    dct:language <http://publications.europa.eu/resource/authority/language/NOB> ;
+    dct:issued "2023-02-23"^^xsd:date ;
+    .

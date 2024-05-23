@@ -1,0 +1,25 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix dcat:   <http://www.w3.org/ns/dcat#> .
+
+@prefix utdanning: <https://data.utdanning.no/> .
+
+utdanning:forvaltningsdatabasen
+    rdf:type        dcat:Dataset ;
+
+    dct:title       "Forvaltningsdatabasen"@nb, "Forvaltningsdatabasen"@nn ;
+    dct:description "Kartlegging av organiseringen til staten og ytre etater etter 1947"@nb ;
+    dct:publisher   <https://organization-catalog.fellesdatakatalog.digdir.no/organizations/919477822> ;
+
+    dcat:theme      <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
+    dct:identifier  "https://data.utdanning.no/forvaltningsdatabasen";
+    .
+
+utdanning:forvaltningsdatabasen-api
+    rdf:type            dcat:DataService ;
+    dct:identifier      "https://data.utdanning.no/forvaltningsdatabasen-api" ;
+    dct:title           "Endepunkt for forvaltningsdatabasen"@nb,
+                        "Endepunkt for forvaltningsdatabasen"@nn ;
+    dcat:endpointURL    <https://data.utdanning.no/api/forvaltningsdatabasen> ; # diktet opp
+    dcat:servesDataset  utdanning:forvaltningsdatabasen ;
+    .
