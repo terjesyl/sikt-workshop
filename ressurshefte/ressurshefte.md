@@ -144,6 +144,8 @@ Gjeldende versjon: https://data.norge.no/specification/dcat-ap-no
 
 ## OPPGAVER - For de ferske
 
+Det er ikke meningen du skal bruke veldig lang tid på hver av disse oppgavene. Om du står fast eller oppgaven er uklar, spør en av oss, eller ta en kikk i løsningsforslaget.
+
 ### 1.0 Hva sier denne beskrivelsen?
 
 ```txt
@@ -242,8 +244,7 @@ utdanning:forvaltningsdatabasen-api
 
 1. Gå til validatoren til data.norge.no (https://data.norge.no/validator)
 2. Kopier og lim inn den utfylte beskrivelsen din fra oppgave 1.3 i feltet "Valider tekst"
-3. Under "Regelsett" velger du "Regelsett lenke" og limer inn lenken https://raw.githubusercontent.com/Informasjonsforvaltning/dcat-ap-no/develop/shacl/DCAT-AP-NO-shacl_shapes_2.00.ttl . Da bruker du siste versjon av valideringsreglene.
-4. Trykk "Valider" nederst på siden, og se hvilke meldinger du får.
+3. Trykk "Valider" nederst på siden, og se hvilke meldinger du får.
 
 Merk: Hvis du har fylt ut alle de obligatoriske feltene for hver ressurs i beskrivelsen skal det ikke komme noen feilmeldinger. Men det kan være at du får noen feilmeldinger fordi de eksterne ressursene beskrivelsen peker til (som f.eks. en kodeliste) har noen mangler. Om du er i tvil hva feilen kommer av, spør en av oss.
 
@@ -384,8 +385,6 @@ For å validere Turtle-syntaks: https://felixlohmeier.github.io/turtle-web-edito
 ### DCAT-AP-NO
 
 For å validere datasettbeskrivelsen mot DCAT-AP-NO: https://data.norge.no/validator
-
-Husk å legge til lenken https://raw.githubusercontent.com/Informasjonsforvaltning/dcat-ap-no/develop/shacl/DCAT-AP-NO-shacl_shapes_2.00.ttl under "Regelsett" -> "Regelsett lenke" for å validere mot siste versjon av reglene.
 
 ## Høsting
 
