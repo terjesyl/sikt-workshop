@@ -1,0 +1,10 @@
+
+# Dere sitter på et datasett som inneholder karakterer knyttet til studenter fra alle eksamener tatt ved høgskoler og universiteter i Norge. Denne dataen er ikke åpen, men dere vil allikevel synliggjøre at dataen fins. I tillegg er dataen tilgjengelig for autoriserte parter gjennom et API.
+
+# Lag en beskrivelse for dette datasettet.
+
+# - Husk å legge til de prefiksene du trenger, og definer dine egne om ønskelig.
+# - Bruk passende koder fra kodelistene nevnt i oppgave 2.1, som vokabularene under http://publications.europa.eu/resource/authority.
+
+
+# FYLL UT

@@ -144,6 +144,13 @@ Gjeldende versjon: https://data.norge.no/specification/dcat-ap-no
 
 ## OPPGAVER - For de ferske
 
+### 1.0 Hva sier denne beskrivelsen?
+
+```txt
+# // oppgaver/1_0.ttl
+
+```
+
 ### 1.1 Fyll ut obligatoriske felter for en datasettbeskrivelse
 
 ```txt
@@ -185,21 +192,25 @@ Hvis du får en feilmelding får du beskjed om linjenummer validatoren feiler p�
 
 ### 1.3. Legg til API-beskrivelse
 
-Under er en ufullstendig beskrivelse av et datasett som tilbys over et API. Erstatt URI-ene og tekstene i store bokstaver med passende innhold.
+```txt
+# // oppgaver/1_3.ttl
 
-- For dcat:endpointURL kan du finne et reelt endepunkt eller dikte opp et eget.
-- For dct:title kan du finne på et tittel for API-et.
-- For dcat:servesDataset må du peke til datasett-ressursen i beskrivelsen.
 
-Når du skal peke fra en ressurs til en annen oppgir du bare URI-en til ressursen i objekt-posisjon. For eksempel angir du datatjenesten/API-et til et datasett med trippelet:
+# Under er en ufullstendig beskrivelse av et datasett som tilbys over et API. Erstatt URI-ene og tekstene i store bokstaver med passende innhold.
 
-- `utdanning:forvaltningsdatabasen-api dcat:servesDataset utdanning:forvaltningsdatabasen .`.
-- Husk at dette er akkurat det samme som å skrive
-  - `<https://data.utdanning.no/forvaltningsdatabasen-api> <http://www.w3.org/ns/dcat#servesDataset> <https://data.utdanning.no/forvaltningsdatabasen> .`.
+# - For dcat:endpointURL kan du finne et reelt endepunkt eller dikte opp et eget.
+# - For dct:title kan du finne på et tittel for API-et.
+# - For dcat:servesDataset må du peke til datasett-ressursen i beskrivelsen.
 
-Valider Turtle-syntaksen underveis.
+# Når du skal peke fra en ressurs til en annen oppgir du bare URI-en til ressursen i objekt-posisjon. For eksempel angir du datatjenesten/API-et til et datasett med trippelet:
 
-```turtle
+# - `utdanning:forvaltningsdatabasen-api dcat:servesDataset utdanning:forvaltningsdatabasen .`.
+# - Husk at dette er akkurat det samme som å skrive
+#   - `<https://data.utdanning.no/forvaltningsdatabasen-api> <http://www.w3.org/ns/dcat#servesDataset> <https://data.utdanning.no/forvaltningsdatabasen> .`.
+
+# Valider Turtle-syntaksen underveis.
+
+
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dct:    <http://purl.org/dc/terms/> .
 @prefix dcat:   <http://www.w3.org/ns/dcat#> .
@@ -238,11 +249,13 @@ Merk: Hvis du har fylt ut alle de obligatoriske feltene for hver ressurs i beskr
 
 ### 1.5 Finn feilen
 
-I denne beskrivelsen skjuler det seg fire syntaksfeil. Bruk turtle-validatoren for å finne og rette dem: https://felixlohmeier.github.io/turtle-web-editor/
+```txt
+# // oppgaver/1_5.ttl
 
-Validatoren skal til slutt gi beskjed om at syntaksen er korrekt.
 
-```turtle
+# I denne beskrivelsen skjuler det seg fire syntaksfeil. Bruk turtle-validatoren for å finne og rette dem: https://felixlohmeier.github.io/turtle-web-editor/
+# Validatoren skal til slutt gi beskjed om at syntaksen er korrekt.
+
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dct:    <http://purl.org/dc/terms/> .
 @prefix foaf:   <http://xmlns.com/foaf/0.1/> .
@@ -291,34 +304,37 @@ public_data:ai_projects_norwegian_state_distribution a dcat:Distribution ;
 
 ### 2.1
 
-Du sitter på et imaginært datasett med oversikt over all verdens programmeringsspråk, historiske og nåværende. Datasettet er tilgjengelig som en statisk JSON-fil. Du vil nå formidle til verden at du sitter på denne dataen.
+```txt
+# // oppgaver/2_1.ttl
 
-Fyll ut de obligatoriske feltene for datasettet:
 
-- dct:title - Tekst (bokmål og nynorsk)
-- dct:description - Tekst
-- dct:publisher - URI til organisasjon
-- dcat:theme - URI til kode.
+# Du sitter på et imaginært datasett med oversikt over all verdens programmeringsspråk, historiske og nåværende. Datasettet er tilgjengelig som en statisk JSON-fil. Du vil nå formidle til verden at du sitter på denne dataen.
 
-For `dct:publisher`, se i oppgavene over hvordan det er gjort der.
+# Fyll ut de obligatoriske feltene for datasettet:
 
-For `dcat:theme` kan du bruke koden `TECH` fra et kjent EU-vokabular: `<http://publications.europa.eu/resource/authority/data-theme/TECH>`.
+# - dct:title - Tekst (bokmål og nynorsk)
+# - dct:description - Tekst
+# - dct:publisher - URI til organisasjon
+# - dcat:theme - URI til kode.
 
-Og legg til disse egenskapene for distribusjonen:
+# For `dct:publisher`, se i oppgavene over hvordan det er gjort der.
 
-- dcat:accessURL - URL
-- dct: description - Tekst
-- dct:format - URI til kode
-- dct:license - URI til kode
-- adms:status - URI til kode
+# For `dcat:theme` kan du bruke koden `TECH` fra et kjent EU-vokabular: `<http://publications.europa.eu/resource/authority/data-theme/TECH>`.
 
-For `dct:format` kan du f.eks. bruke koden `JSON`: `<http://publications.europa.eu/resource/authority/file-type/JSON>`
+# Og legg til disse egenskapene for distribusjonen:
 
-For `dct:license` kan du f.eks. bruke koden `CC_BY_4_0`: `<http://publications.europa.eu/resource/authority/licence/CC_BY_4_0>`.
+# - dcat:accessURL - URL
+# - dct: description - Tekst
+# - dct:format - URI til kode
+# - dct:license - URI til kode
+# - adms:status - URI til kode
 
-For`adms:status`kan du f.eks. bruke koden`UnderDevelopment`: `<http://purl.org/adms/status/UnderDevelopment>`.
+# For `dct:format` kan du f.eks. bruke koden `JSON`: `<http://publications.europa.eu/resource/authority/file-type/JSON>`
 
-```turtle
+# For `dct:license` kan du f.eks. bruke koden `CC_BY_4_0`: `<http://publications.europa.eu/resource/authority/licence/CC_BY_4_0>`.
+
+# For`adms:status`kan du f.eks. bruke koden`UnderDevelopment`: `<http://purl.org/adms/status/UnderDevelopment>`.
+
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dct:    <http://purl.org/dc/terms/> .
 @prefix dcat:   <http://www.w3.org/ns/dcat#> .
@@ -337,22 +353,26 @@ programming:languages-distribution
     rdf:type dcat:Distribution ;
     # FYLL UT ...
     .
+
 ```
 
 ## Oppgaver - For de modige
 
 ### 3.1
 
-Dere sitter på et datasett som inneholder karakterer knyttet til studenter fra alle eksamener tatt ved høgskoler og universiteter i Norge. Denne dataen er ikke åpen, men dere vil allikevel synliggjøre at dataen fins. I tillegg er dataen tilgjengelig for autoriserte parter gjennom et API.
+```txt
+# // oppgaver/3_1.ttl
 
-Lag en beskrivelse for dette datasettet.
 
-- Husk å legge til de prefiksene du trenger, og definer dine egne om ønskelig.
-- Bruk passende koder fra kodelistene nevnt i oppgave 2.1, som vokabularene under http://publications.europa.eu/resource/authority.
+# Dere sitter på et datasett som inneholder karakterer knyttet til studenter fra alle eksamener tatt ved høgskoler og universiteter i Norge. Denne dataen er ikke åpen, men dere vil allikevel synliggjøre at dataen fins. I tillegg er dataen tilgjengelig for autoriserte parter gjennom et API.
 
-```turtle
+# Lag en beskrivelse for dette datasettet.
+
+# - Husk å legge til de prefiksene du trenger, og definer dine egne om ønskelig.
+# - Bruk passende koder fra kodelistene nevnt i oppgave 2.1, som vokabularene under http://publications.europa.eu/resource/authority.
+
+
 # FYLL UT
-
 ```
 
 ## Validering

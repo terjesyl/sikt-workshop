@@ -1,0 +1,9 @@
+
+# - 1. Hva er bokmålstittelen til datasettet?
+# - 2. Hva er den engelske tittelen til datasettet?
+# - 3. Hva er organisasjonsnummeret til utgiveren?
+# - 4. Hva er den fullstendige URI-en til datatjenesten ("DataService")?
+# - 5. Hva er URL-en til API-ets endepunkt?
+
+
+TODO
