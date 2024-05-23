@@ -55,7 +55,11 @@ Vi bruker ressurser som allerede er definert av andre, f.eks. RDF, Schema.org el
 <https://example.org/people/adaLovelace>   <https://schema.org/knowsAbout>                     "Programmering"@nb .
 ```
 
-#### Andre RDF-serialiseringer/syntakser
+#### RDF-serialiseringer/syntakser
+
+| Mediatype     | File extension |
+| ------------- | -------------- |
+| `text/turtle` | `.ttl`         |
 
 TODO
 
@@ -405,3 +409,17 @@ For å validere datasettbeskrivelsen mot DCAT-AP-NO: https://data.norge.no/valid
 ## Høsting
 
 Informasjon om hvordan registrere kilder som kan høstes til data.norge.no: https://data.norge.no/publishing/about-harvesting
+
+## Flere ressurser
+
+TODO
+
+### Artikler
+
+### Visualisering
+
+### Verktøy
+
+- Protege
+
+### Spec'er (teknisk)
