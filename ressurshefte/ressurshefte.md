@@ -206,7 +206,7 @@ Det er ikke meningen du skal bruke veldig lang tid på hver av disse oppgavene. 
 
 #### 1.0 Hva sier denne beskrivelsen?
 
-```txt
+```turtle
 # // oppgaver/1_0.ttl
 
 
@@ -260,7 +260,7 @@ digdirdataservices:workshop-api a dcat:DataService ;
 
 #### 1.1 Fyll ut obligatoriske felter for en datasettbeskrivelse
 
-```txt
+```turtle
 # // oppgaver/1_1.ttl
 
 # Under er en beskrivelse av datasettet Forvaltningsdatabasen, med de obligatoriske feltene i henhold til DCAT-AP-NO.
@@ -299,7 +299,7 @@ Hvis du får en feilmelding får du beskjed om linjenummer validatoren feiler p�
 
 #### 1.3. Legg til API-beskrivelse
 
-```txt
+```turtle
 # // oppgaver/1_3.ttl
 
 
@@ -355,7 +355,7 @@ Merk: Hvis du har fylt ut alle de obligatoriske feltene for hver ressurs i beskr
 
 #### 1.5 Finn feilen
 
-```txt
+```turtle
 # // oppgaver/1_5.ttl
 
 
@@ -410,7 +410,7 @@ public_data:ai_projects_norwegian_state_distribution a dcat:Distribution ;
 
 #### 2.1
 
-```txt
+```turtle
 # // oppgaver/2_1.ttl
 
 
@@ -466,7 +466,7 @@ programming:languages-distribution
 
 #### 3.1
 
-```txt
+```turtle
 # // oppgaver/3_1.ttl
 
 
