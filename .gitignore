@@ -1,3 +1,4 @@
 # Draw.io backup files
 *.svg.bkp
 *.bkp
+.DS_Store
