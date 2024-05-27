@@ -20,20 +20,6 @@ Med disse byggeklossene kan vi lage rettede grafer som består av ting og relasj
 
 ![Rettet graf](./imgs/graph_example1.drawio.svg)
 
-### Modellere Ada Lovelace
-
-AdaLovelace type Person
-
-AdaLovelace navn Ada Lovelace
-
-AdaLovelace født 10.12.1815
-
-AdaLovelace kjenner CharlesBabbage
-
-AdaLovelace interesse Programmering
-
-![Ada Lovelace](./imgs/ada_lovelace_graph.drawio.svg)
-
 ### Hvorfor RDF?
 
 - Maskinlesbart.
@@ -49,6 +35,36 @@ AdaLovelace interesse Programmering
 Viktig antakelse: åpent verdenssyn (Open world assumption).
 
 Se hva W3C selv [skriver om bruksområder for RDF](https://www.w3.org/TR/rdf11-primer/#section-use-cases).
+
+#### RDF-serialiseringer/syntakser
+
+Det fins flere ulike måter å uttrykke RDF-grafer. I tabellen under har vi listet noen av de vanligste syntaksene for å serialisere RDF. Du trenger ikke kunne alle, bare å kjenne til at de fins.
+
+RDF-verktøy og biblioteker kan lese til og skrive fra en eller flere av disse syntaksene. De facto standard er RDF/XML, men Turtle støttes også av de aller fleste verktøy.
+
+| Navn      | Mediatype               | File extension |
+| --------- | ----------------------- | -------------- |
+| Turtle    | `text/turtle`           | `.ttl`         |
+| RDF/XML   | `application/rdf+xml`   | `.rdf`         |
+| JSON-LD   | `application/ld+json`   | `.jsonld`      |
+| N-Triples | `application/n-triples` | `.nt`          |
+| N-Quads   | `application/n-quads`   | `.nq`          |
+| TriG      | `application/trig`      | `.trig`        |
+| Notation3 | `text/n3;charset=utf-8` | `.n3`          |
+
+### Modellere Ada Lovelace
+
+AdaLovelace type Person
+
+AdaLovelace navn Ada Lovelace
+
+AdaLovelace født 10.12.1815
+
+AdaLovelace kjenner CharlesBabbage
+
+AdaLovelace interesse Programmering
+
+![Ada Lovelace](./imgs/ada_lovelace_graph.drawio.svg)
 
 ### Turtle - en RDF-syntaks
 
@@ -149,22 +165,6 @@ people:adaLovelace   rdf:type        foaf:Person ;
 ```
 
 Hvert utsagn som gjenbruk subjekt+predikat avsluttes med `,`.
-
-#### RDF-serialiseringer/syntakser
-
-Det fins flere ulike måter å uttrykke RDF-grafer. I tabellen under har vi listet noen av de vanligste syntaksene for å serialisere RDF. Du trenger ikke kunne alle, bare å kjenne til at de fins.
-
-RDF-verktøy og biblioteker kan lese til og skrive fra en eller flere av disse syntaksene. De facto standard er RDF/XML, men Turtle støttes også av de aller fleste verktøy.
-
-| Navn      | Mediatype               | File extension |
-| --------- | ----------------------- | -------------- |
-| Turtle    | `text/turtle`           | `.ttl`         |
-| RDF/XML   | `application/rdf+xml`   | `.rdf`         |
-| JSON-LD   | `application/ld+json`   | `.jsonld`      |
-| N-Triples | `application/n-triples` | `.nt`          |
-| N-Quads   | `application/n-quads`   | `.nq`          |
-| TriG      | `application/trig`      | `.trig`        |
-| Notation3 | `text/n3;charset=utf-8` | `.n3`          |
 
 ### DCAT-AP (Data Catalog Vocabulary – Application Profile)
 
