@@ -212,7 +212,7 @@ Det er ikke meningen du skal bruke veldig lang tid på hver av disse oppgavene. 
 
 # - 1. Hva er bokmålstittelen til datasettet?
 # - 2. Hva er den engelske tittelen til datasettet?
-# - 3. Hva er organisasjonsnummeret til utgiveren?
+# - 3. Hva er organisasjonsnummeret til katalogens utgiver (hint: se på dct:publisher)?
 # - 4. Hva er den fullstendige URI-en til datatjenesten ("DataService")? Skal ikke være på prefiks-form.
 # - 5. Hva er URL-en til API-ets endepunkt?
 # - 6. Hva er eposten man kan kontakte for spørsmål knyttet til datasettet?
