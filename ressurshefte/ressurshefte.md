@@ -212,8 +212,8 @@ Det er ikke meningen du skal bruke veldig lang tid på hver av disse oppgavene. 
 
 # - 1. Hva er bokmålstittelen til datasettet?
 # - 2. Hva er den engelske tittelen til datasettet?
-# - 3. Hva er organisasjonsnummeret til katalogens utgiver (hint: se på dct:publisher)?
-# - 4. Hva er den fullstendige URI-en til datatjenesten ("DataService")? Skal ikke være på prefiks-form.
+# - 3. Hva er organisasjonsnummeret til katalogens utgiver? (hint: se på dct:publisher)
+# - 4. Hva er den fullstendige URI-en til datatjenesten ("DataService")? Skal angis som fullstendig URI og ikke på prefiks-form.
 # - 5. Hva er URL-en til API-ets endepunkt?
 # - 6. Hva er eposten man kan kontakte for spørsmål knyttet til datasettet?
 
@@ -485,7 +485,11 @@ programming:languages-distribution
 
 ### Turtle-syntaks
 
-For å validere Turtle-syntaks: https://felixlohmeier.github.io/turtle-web-editor/
+For å validere Turtle-syntaks:
+https://felixlohmeier.github.io/turtle-web-editor/
+
+`easyrdf.org` lar deg også konvertere mellom ulike RDF-serialiseringer.
+https://www.easyrdf.org/converter
 
 ### DCAT-AP-NO
 
@@ -497,14 +501,32 @@ Informasjon om hvordan registrere kilder som kan høstes til data.norge.no: http
 
 ## Flere ressurser
 
-TODO
-
 ### Artikler
 
-### Visualisering
+- [RDF Primer](https://www.w3.org/TR/rdf11-primer/): en innføring i RDF, fra W3C.
+- [Best Practice Recipes for Publishing RDF Vocabularies](https://www.w3.org/TR/swbp-vocab-pub/), W3C.
+- [Best Practices for Publishing Linked Data](https://www.w3.org/TR/ld-bp/), W3C.
+- [10 regler for varige URI-er](https://joinup.ec.europa.eu/collection/semic-support-centre/document/10-rules-persistent-uris), Interoperable Europa.
+- [data.norge.no sitt "showroom"](https://data.norge.no/showroom/overview) som gir et overblikk over de ulike katalogene på data.norge.no og hvordan de henger sammen, i tillegg til flere eksempler på beskrivelser.
 
 ### Verktøy
 
-- Protege
+- [datacatalogtordf](https://github.com/Informasjonsforvaltning/datacatalogtordf): Et Python-bibliotek for å mappe fra Python-objekter til en datakatalog i RDF-format i henhold til DCAT-AP-NO.
+- [SPARQL-spørringer på data.norge.no](https://data.norge.no/sparql): kan gjøre spørringer på alt innhold i den nasjonale datakatalogen.
 
 ### Spec'er (teknisk)
+
+- [Data Catalog Vocabulary (DCAT)](https://www.w3.org/TR/vocab-dcat-3/): W3C-standard for beskrivelse av datakataloger.
+- [DCAT-AP](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#DataService): EU sin applikasjonsprofil for DCAT.
+- [DCAT-AP-NO](https://data.norge.no/specification/dcat-ap-no): den norske applikasjonsprofilen for DCAT, basert på og kompatibel med DCAT-AP.
+- [Shapes Constraint Language (SHACL)](https://www.w3.org/TR/shacl/): brukes for å definere regler for RDF-grafer og å validere i henhold til disse (brukes i DCAT-AP-NO-validatoren).
+- [SPARQL Query Language](https://www.w3.org/TR/sparql11-query/): for å gjøre spørringer på RDF-grafer.
+
+I tillegg inneholder data.norge.no oversikt over:
+
+- begreper (https://data.norge.no/om-begrepskatalogen)
+- datatjenester/API-er (https://data.norge.no/om-api-katalogen)
+- informasjonsmodeller (https://data.norge.no/om-informasjonskatalogen)
+- tjenester og hendelser (https://data.norge.no/specification/cpsv-ap-no)
+
+I likhet med datasett-katalogen høstes disse ressursene fra virksomheter i offentlig sektor, og er ment å tilrettelegge for gjenbruk på tvers av virksomheter. De ulike katalogene kan brukes i sammenheng og knyttes opp mot hverandre. For eksempel kan man peke til relevante begreper i en datasettbeskrivelse, eller peke til en informasjonsmodell som et datasett eller en datatjeneste implementerer.
