@@ -166,7 +166,7 @@ people:adaLovelace   rdf:type        foaf:Person ;
 
 Hvert utsagn som gjenbruk subjekt+predikat avsluttes med `,`.
 
-### DCAT-AP (Data Catalog Vocabulary – Application Profile)
+### DCAT-AP-NO (Data Catalog Vocabulary – Application Profile)
 
 Spesifikasjon for hvordan beskrive datasett og API-er.
 
