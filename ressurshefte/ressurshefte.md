@@ -178,7 +178,7 @@ Gjeldende versjon: https://data.norge.no/specification/dcat-ap-no
 
 ### Datasettkatalogen: dcat:Catalog
 
-En katalog er en samling av datasett. I de fleste av oppgavene under har vi for enkelhetsskyld utelatt `dcat:Catalog`, men for å lage en fullstendig beskrivelse som kan høstes til https://data.norge.no må du knytte alle datasettene til en katalog:
+En katalog er en samling av metadata om ressurser (som datasett). I de fleste av oppgavene under har vi for enkelhetsskyld utelatt `dcat:Catalog`, men for å lage en fullstendig beskrivelse som kan høstes til https://data.norge.no må du knytte alle datasettbeskrivelsene til en katalog:
 
 ```turtle
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
